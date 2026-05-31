@@ -9,11 +9,9 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
-        
-        ::-webkit-scrollbar{width:8px}
-        ::-webkit-scrollbar-track{background:#001101;border-radius:3px}
-        ::-webkit-scrollbar-thumb{background:#575757;border-radius:10px}
-        
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:#1a1a2a;border-radius:10px}
+        ::-webkit-scrollbar-thumb{background:#2ecc2e;border-radius:10px}
         :root{--primary:#2ecc2e;--primary-dark:#1a8a1a;--primary-glow:rgba(46,204,46,0.3);--text-primary:#e0e0e0;--text-secondary:#888;--bg-dark:#0a0a0f;--glass-bg:rgba(10,10,18,0.7);--border-glass:rgba(255,255,255,0.08);--card-bg:rgba(20,20,30,0.5);--transition:all 0.3s cubic-bezier(0.2,0.9,0.4,1.1)}
         body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg-dark);color:var(--text-primary);min-height:100vh;transition:background .3s ease;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
         input,textarea,[contenteditable="true"]{user-select:text;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text}
@@ -189,6 +187,9 @@
         .overall-status-glass{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border-radius:40px;padding:10px 24px;border:1px solid rgba(255,255,255,0.12);transition:all 0.3s ease}
         .status-indicator-glass{width:10px;height:10px;background:#2ecc2e;border-radius:50%;box-shadow:0 0 8px rgba(46,204,46,0.6);animation:pulse 1.5s infinite}
         .overall-status-glass span{font-size:14px;font-weight:500;color:#fff}
+        body.light-mode .overall-status-glass{background:rgba(200,200,210,0.4);backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,0.08)}
+        body.light-mode .overall-status-glass span{color:#035e03}
+        body.light-mode .status-indicator-glass{background:#035e03;box-shadow:0 0 8px rgba(3,94,3,0.4)}
         .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:60px}
         .service-card{background:rgba(20,20,30,0.4);backdrop-filter:blur(8px);border-radius:20px;border:1px solid rgba(255,255,255,0.08);padding:24px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
         .service-card:hover{border-color:rgba(46,204,46,0.3);transform:translateY(-2px)}
@@ -221,11 +222,15 @@
         .faq-header{text-align:center;margin-bottom:50px}
         .faq-header h2{font-size:32px;font-weight:700;margin-bottom:12px}
         .faq-header p{color:var(--text-secondary);font-size:14px;max-width:600px;margin:0 auto}
+        
+        /* ✅ استایل FAQ اصلاح شده - حالت عمودی (بلوک زیر هم) */
         .faq-grid{display:flex;flex-direction:column;gap:24px;max-width:800px;margin:0 auto}
+
         .faq-item{background:rgba(20,20,30,0.5);backdrop-filter:blur(12px);border-radius:24px;border:1px solid rgba(255,255,255,0.08);overflow:hidden;transition:border-color 0.3s ease, transform 0.2s ease;cursor:pointer}
         .faq-item:hover{border-color:rgba(46,204,46,0.12);transform:translateY(-1px)}
         .faq-item.open{border-color:rgba(46,204,46,0.3);transform:translateY(0)}
         .faq-item.open:hover{transform:translateY(0)}
+
         .faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;background:rgba(255,255,255,0.03);font-weight:600;font-size:16px}
         .faq-left{display:flex;align-items:center;gap:14px}
         .faq-icon{width:32px;height:32px;background:rgba(46,204,46,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px}
@@ -233,6 +238,7 @@
         .faq-item.open .faq-arrow{transform:rotate(180deg)}
         .faq-answer{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease;color:var(--text-secondary);font-size:14px;line-height:1.6;border-top:1px solid rgba(255,255,255,0.05)}
         .faq-item.open .faq-answer{padding:20px 24px 24px 24px;max-height:300px}
+
         .bug-report-section{background:rgba(20,20,30,0.4);backdrop-filter:blur(8px);border-radius:28px;border:1px solid rgba(255,255,255,0.08);padding:40px;margin-top:60px}
         .bug-header{text-align:center;margin-bottom:40px}
         .bug-header h2{font-size:28px;font-weight:700;margin-bottom:12px}
@@ -243,9 +249,6 @@
         .form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(10,10,15,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:var(--text-primary);font-size:14px;font-family:inherit;transition:all .2s}
         .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:rgba(46,204,46,0.5);background:rgba(10,10,15,0.8)}
         .form-group input::placeholder,.form-group textarea::placeholder{color:#555}
-        .form-group select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232ecc2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:16px;padding-right:45px}
-        .form-group select option{background:#1a1a2a;color:#e0e0e0;padding:12px}
-        .form-group textarea{resize:none}
         .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
         .file-upload{background:rgba(10,10,15,0.6);border:1px dashed rgba(255,255,255,0.2);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;color:#888}
         .file-upload:hover{border-color:rgba(46,204,46,0.4);background:rgba(46,204,46,0.05)}
@@ -280,21 +283,12 @@
         .social-links-compact a:hover{color:var(--primary)}
         .page{display:none}
         .page.active-page{display:block}
-        .hamburger-btn{display:none;background:rgba(255,255,255,0.06);border:none;width:42px;height:42px;border-radius:10px;cursor:pointer;transition:all .2s;color:var(--text-primary);align-items:center;justify-content:center}
-        .hamburger-btn svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.8;fill:none}
-        .hamburger-btn:hover{background:rgba(46,204,46,0.2);color:var(--primary)}
-        .mobile-menu-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);z-index:1000;display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:40px}
-        .mobile-menu-overlay.active{display:flex}
-        .mobile-menu-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:16px 32px;width:100%;max-width:280px;text-align:center;cursor:pointer;transition:all .2s;color:var(--text-primary);font-size:18px;font-weight:500}
-        .mobile-menu-item:hover{background:rgba(46,204,46,0.2);border-color:rgba(46,204,46,0.3);color:var(--primary);transform:scale(1.02)}
-        .close-mobile-menu{position:absolute;top:30px;right:30px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);width:44px;height:44px;border-radius:12px;cursor:pointer;color:var(--text-primary);display:flex;align-items:center;justify-content:center;font-size:24px;transition:all .2s}
-        .close-mobile-menu:hover{background:rgba(46,204,46,0.2);color:var(--primary);transform:scale(1.05)}
         @media (max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.plans-grid{grid-template-columns:repeat(2,1fr)}.team-grid-modern{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.region-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{max-width:100%}.footer-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
-        @media (max-width:768px){.nav-menu{display:none}.hamburger-btn{display:flex}.hero-title{font-size:44px}.features-grid{grid-template-columns:1fr}.plans-grid{grid-template-columns:1fr}.team-grid-modern{grid-template-columns:1fr}.region-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.bug-report-section{padding:24px}.footer-grid{grid-template-columns:1fr;gap:20px}.footer-info-row{flex-direction:column;gap:12px;align-items:flex-start}.footer-bottom{flex-direction:column;text-align:center;justify-content:center}.footer-brand-compact{justify-content:center}.glass-card-auth{margin:20px;padding:30px 24px}}
+        @media (max-width:768px){.nav-menu{display:none}.hero-title{font-size:44px}.features-grid{grid-template-columns:1fr}.plans-grid{grid-template-columns:1fr}.team-grid-modern{grid-template-columns:1fr}.region-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.bug-report-section{padding:24px}.footer-grid{grid-template-columns:1fr;gap:20px}.footer-info-row{flex-direction:column;gap:12px;align-items:flex-start}.footer-bottom{flex-direction:column;text-align:center;justify-content:center}.footer-brand-compact{justify-content:center}.glass-card-auth{margin:20px;padding:30px 24px}}
+        
+        /* لایت مود */
         body.light-mode{background:#cfcfcf!important}
         body.light-mode .bg-grid,body.light-mode .bg-vignette,body.light-mode .bg-glow{display:block!important;opacity:0.08}
-        body.light-mode ::-webkit-scrollbar-track{background:#c2c2c2f8;border-radius:10px}
-        body.light-mode ::-webkit-scrollbar-thumb{background:#003000;border-radius:10px}
         body.light-mode .glass-navbar{background:#c4c4c4!important;backdrop-filter:blur(20px)!important;border:1px solid rgba(0,0,0,0.1)!important;box-shadow:0 8px 20px rgba(0,0,0,0.05)!important}
         body.light-mode .navbar *{color:#1e1e2a!important}
         body.light-mode .logo-text span:first-child{color:#035e03!important}
@@ -313,19 +307,13 @@
         body.light-mode .status-hero h1{background:linear-gradient(135deg,#444,#777)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
         body.light-mode .feature-card, body.light-mode .service-card, body.light-mode .team-card-modern, body.light-mode .tech-item-modern, body.light-mode .region-card, body.light-mode .bug-report-section, body.light-mode .incident-list, body.light-mode .glass-card-auth{background:#c8c8c8!important;backdrop-filter:blur(12px)!important;border:1px solid rgba(0,0,0,0.08)!important;box-shadow:0 4px 12px rgba(0,0,0,0.05)!important}
         body.light-mode .feature-card:hover, body.light-mode .service-card:hover, body.light-mode .team-card-modern:hover, body.light-mode .region-card:hover{background:#d0d0d0!important;border-color:rgba(3,94,3,0.35)!important;transform:translateY(-3px)}
-        body.light-mode .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23035e03' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")}
-        body.light-mode .form-group select option{background:#c8c8c8;color:#1e1e2a}
+
+        /* ✅ FAQ لایت مود اصلاح شده */
         body.light-mode .faq-item{background:#c8c8c8!important;backdrop-filter:blur(12px)!important;border:1px solid rgba(0,0,0,0.08)!important;box-shadow:0 4px 12px rgba(0,0,0,0.05)!important}
         body.light-mode .faq-item:hover{background:#cdcdcd!important;border-color:rgba(3,94,3,0.12)!important;transform:translateY(-1px)!important}
         body.light-mode .faq-item.open{border-color:rgba(3,94,3,0.35)!important;transform:translateY(0)!important}
         body.light-mode .faq-item.open:hover{transform:translateY(0)!important}
-        body.light-mode .hamburger-btn{background:rgba(0,0,0,0.05)!important;color:#1e1e2a!important}
-        body.light-mode .hamburger-btn:hover{background:rgba(3,94,3,0.12)!important;color:#035e03!important}
-        body.light-mode .mobile-menu-overlay{background:rgba(200,200,210,0.95)!important;backdrop-filter:blur(16px)!important}
-        body.light-mode .mobile-menu-item{background:rgba(0,0,0,0.06)!important;border-color:rgba(0,0,0,0.1)!important;color:#1e1e2a!important}
-        body.light-mode .mobile-menu-item:hover{background:rgba(3,94,3,0.15)!important;border-color:rgba(3,94,3,0.3)!important;color:#035e03!important}
-        body.light-mode .close-mobile-menu{background:rgba(0,0,0,0.06)!important;border-color:rgba(0,0,0,0.1)!important;color:#1e1e2a!important}
-        body.light-mode .close-mobile-menu:hover{background:rgba(3,94,3,0.12)!important;color:#035e03!important}
+
         body.light-mode .plan-card{background:linear-gradient(180deg,#c4c4c4 0%,#bcbcbc 100%)!important;backdrop-filter:blur(8px)!important;border:1px solid rgba(0,0,0,0.1)!important;box-shadow:0 8px 25px rgba(0,0,0,0.06)!important}
         body.light-mode .plan-card:hover{background:#cecece!important;border-color:rgba(3,94,3,0.4)!important;transform:translateY(-6px);box-shadow:0 16px 35px rgba(0,0,0,0.1)!important}
         body.light-mode .plan-name{background:linear-gradient(135deg,#1e1e2a,#035e03)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
@@ -382,6 +370,151 @@
         body.light-mode .signin-panel-overlay .forgot-link{color:#777!important}
         body.light-mode .signin-panel-overlay .forgot-link:hover{color:#2ecc2e!important}
         body.light-mode .signin-panel-overlay .auth-form-group input:focus{border-color:rgba(46,204,46,0.5)!important}
+
+        /* ============================================================
+           MOBILE RESPONSIVE — فقط موبایل، PC دست نخورده
+        ============================================================ */
+
+        /* Bottom Nav Bar — فقط موبایل نشون داده میشه */
+        .mobile-bottom-nav{
+            display:none;
+            position:fixed;
+            bottom:0;left:0;right:0;
+            z-index:300;
+            background:rgba(8,8,14,0.95);
+            backdrop-filter:blur(24px);
+            -webkit-backdrop-filter:blur(24px);
+            border-top:1px solid rgba(46,204,46,0.15);
+            padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));
+            justify-content:space-around;
+            align-items:center;
+            gap:4px;
+        }
+        .mobile-nav-btn{
+            display:flex;flex-direction:column;align-items:center;
+            gap:3px;padding:6px 10px;border-radius:14px;
+            cursor:pointer;border:none;background:transparent;
+            color:#555;font-family:inherit;transition:all .2s;
+            min-width:52px;flex:1;
+        }
+        .mobile-nav-btn.active{color:var(--primary);background:rgba(46,204,46,0.1);}
+        .mobile-nav-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;}
+        .mobile-nav-btn span{font-size:10px;font-weight:600;letter-spacing:.2px;}
+
+        /* Light mode bottom nav */
+        body.light-mode .mobile-bottom-nav{background:rgba(190,190,195,0.97)!important;border-top:1px solid rgba(0,0,0,0.1)!important;}
+        body.light-mode .mobile-nav-btn{color:#888!important;}
+        body.light-mode .mobile-nav-btn.active{color:#035e03!important;background:rgba(3,94,3,0.1)!important;}
+
+        @media (max-width:768px){
+            /* نشون دادن bottom nav */
+            .mobile-bottom-nav{display:flex;}
+
+            /* فاصله پایین برای bottom nav */
+            body{padding-bottom:80px;}
+
+            /* Navbar کوچکتر */
+            .header-wrapper{padding:10px 10px 0 10px;}
+            .glass-navbar{border-radius:14px;}
+            .navbar{height:58px;padding:0 12px;}
+            .logo-icon{width:30px;height:30px;border-radius:8px;}
+            .logo-icon svg{width:17px;height:17px;}
+            .logo-text{font-size:14px;}
+            .online-badge{display:none;}
+            .icon-btn{width:36px;height:36px;border-radius:8px;}
+            .icon-btn svg{width:18px;height:18px;}
+            .signin-btn{padding:0 12px;height:36px;font-size:12px;border-radius:10px;gap:5px;}
+            .signin-btn svg{width:16px;height:16px;}
+
+            /* Container */
+            .container{padding:0 12px;}
+
+            /* Hero */
+            .hero{padding:28px 0 20px;}
+            .hero-title{font-size:clamp(30px,8.5vw,42px);line-height:1.1;}
+            .hero-sub{font-size:13px;margin-bottom:14px;}
+            .badge-list{gap:7px;margin:14px 0;}
+            .badge{font-size:11px;padding:5px 11px;gap:5px;}
+            .badge svg{width:13px;height:13px;}
+            .online-large{font-size:12px;padding:6px 16px;margin-bottom:14px;}
+            .btn-group{gap:10px;flex-direction:column;align-items:stretch;}
+            .btn{min-width:0;width:100%;padding:13px 20px;font-size:14px;border-radius:12px;}
+
+            /* Sections */
+            .features-section{padding:36px 0;}
+            .section-title{font-size:22px;margin-bottom:24px;}
+            .store-section{padding:36px 0;}
+            .store-header h2{font-size:20px;}
+            .status-section{padding:36px 0;}
+            .status-hero h1{font-size:22px!important;line-height:1.3;}
+            .help-section{padding:36px 0;}
+
+            /* Feature cards */
+            .feature-header{padding:16px 16px 10px;}
+            .feature-content{padding:0 16px 16px;}
+
+            /* Plan cards */
+            .plans-grid{gap:16px;}
+            .plan-card{padding:22px 18px;}
+            .plan-name{font-size:20px;}
+            .plan-price{font-size:30px;}
+
+            /* Team */
+            .team-section-header{margin-top:40px;margin-bottom:32px;}
+            .team-section-header h2{font-size:24px;}
+            .team-grid-modern{gap:16px;margin-bottom:40px;}
+            .team-card-modern{padding:24px 20px;}
+
+            /* Status page */
+            .services-grid{gap:14px;}
+            .service-card{padding:16px;flex-direction:column;align-items:flex-start;gap:12px;}
+            .service-status{align-self:flex-end;}
+            .region-grid{gap:12px;}
+            .region-card{padding:14px;}
+            .incident-list{padding:20px;}
+
+            /* FAQ */
+            .faq-header h2{font-size:22px;}
+            .faq-question{font-size:13px;padding:14px 16px;}
+            .faq-left{gap:10px;}
+            .faq-icon{width:28px;height:28px;font-size:15px;}
+            .faq-answer{font-size:13px;padding:0 16px;}
+            .faq-item.open .faq-answer{padding:14px 16px 18px;}
+
+            /* Bug report */
+            .bug-report-section{padding:20px;margin-top:36px;}
+            .bug-header h2{font-size:20px;}
+            .form-row{grid-template-columns:1fr;}
+
+            /* Auth panel */
+            .glass-card-auth{margin:16px;padding:28px 20px;border-radius:24px;}
+            .auth-title{font-size:22px;}
+
+            /* Footer */
+            .footer-wrapper{padding:0 10px;margin-bottom:12px;}
+            .footer-glass{padding:22px 18px 20px;border-radius:18px;}
+            .footer-bottom{gap:12px;}
+
+            /* Tech grid */
+            .tech-grid-modern{gap:12px;}
+            .tech-item-modern{padding:10px 18px;}
+
+            /* Store btn */
+            .store-btn{padding:10px 24px;font-size:13px;}
+
+            /* Why choose */
+            .why-choose-section{padding:30px 0 40px;}
+            .why-choose-section h2{font-size:22px;}
+        }
+
+        /* خیلی کوچیک (iPhone SE و مشابه) */
+        @media (max-width:380px){
+            .hero-title{font-size:clamp(26px,7.5vw,34px);}
+            .navbar{padding:0 10px;}
+            .logo-text{font-size:13px;}
+            .mobile-nav-btn{min-width:44px;padding:6px 6px;}
+            .mobile-nav-btn span{font-size:9px;}
+        }
     </style>
 </head>
 <body>
@@ -421,25 +554,9 @@
             <div class="nav-actions">
                 <button class="icon-btn" id="themeToggle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
                 <a href="#" class="signin-btn" id="signinBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="20" height="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Sign In</a>
-                <button class="hamburger-btn" id="hamburgerBtn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="12" x2="21" y2="12"/>
-                        <line x1="3" y1="6" x2="21" y2="6"/>
-                        <line x1="3" y1="18" x2="21" y2="18"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </div>
-</div>
-
-<div class="mobile-menu-overlay" id="mobileMenuOverlay">
-    <button class="close-mobile-menu" id="closeMobileMenuBtn">✕</button>
-    <button class="mobile-menu-item" data-page="home">🏠 Home</button>
-    <button class="mobile-menu-item" data-page="store">🛒 Store</button>
-    <button class="mobile-menu-item" data-page="about">👥 About</button>
-    <button class="mobile-menu-item" data-page="status">📊 Status</button>
-    <button class="mobile-menu-item" data-page="help">❓ Help</button>
 </div>
 
 <main class="container">
@@ -505,6 +622,7 @@
         </div>
     </div></div>
 
+    <!-- ==================== صفحه Help با تغییرات درخواستی ==================== -->
     <div id="helpPage" class="page"><div class="help-section">
         <div class="faq-section">
             <div class="faq-header">
@@ -512,6 +630,7 @@
                 <h2>Got questions? We've got answers.</h2>
                 <p>Everything you need to know about Fanthom Launcher.</p>
             </div>
+            <!-- ✅ چیدمان عمودی - 4 سوال به صورت بلاک زیر هم -->
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question"><div class="faq-left"><div class="faq-icon">❓</div><span>What is Fanthom Launcher?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
@@ -535,28 +654,7 @@
             <div class="bug-header"><span class="section-badge">✦ Report an Issue</span><h2>Found a bug? Let us know.</h2><p>Help us improve Fanthom Launcher by reporting any issues you encounter.</p></div>
             <div class="bug-form">
                 <div class="form-group"><label for="bugTitle">Issue Title</label><input type="text" id="bugTitle" placeholder="e.g., Launcher crashes when opening settings"></div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="bugCategory">Category</label>
-                        <select id="bugCategory">
-                            <option value="launcher">Launcher</option>
-                            <option value="game">Game Launch</option>
-                            <option value="store">Store</option>
-                            <option value="login">Login/Account</option>
-                            <option value="performance">Performance</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="bugPriority">Priority</label>
-                        <select id="bugPriority">
-                            <option value="low">Low - Minor inconvenience</option>
-                            <option value="medium">Medium - Annoying but workable</option>
-                            <option value="high">High - Major feature broken</option>
-                            <option value="critical">Critical - Cannot use launcher</option>
-                        </select>
-                    </div>
-                </div>
+                <div class="form-row"><div class="form-group"><label for="bugCategory">Category</label><select id="bugCategory"><option value="launcher">Launcher</option><option value="game">Game Launch</option><option value="store">Store</option><option value="login">Login/Account</option><option value="performance">Performance</option><option value="other">Other</option></select></div><div class="form-group"><label for="bugPriority">Priority</label><select id="bugPriority"><option value="low">Low - Minor inconvenience</option><option value="medium">Medium - Annoying but workable</option><option value="high">High - Major feature broken</option><option value="critical">Critical - Cannot use launcher</option></select></div></div>
                 <div class="form-group"><label for="bugDescription">Description</label><textarea id="bugDescription" rows="5" placeholder="Please describe the issue in detail. Include steps to reproduce if possible..."></textarea></div>
                 <div class="form-group"><label>Attachments (Optional)</label><div class="file-upload"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg><span>Click or drag files here</span></div></div>
                 <div class="form-group"><label class="checkbox-label"><input type="checkbox" id="bugEmail"><span>Send me updates about this issue via email</span></label></div>
@@ -567,10 +665,34 @@
 
     <div id="signinPanel" class="signin-panel-overlay"><div class="glass-card-auth"><button class="close-panel" id="closeSigninPanel">✕</button><div class="auth-tabs"><button class="auth-tab-btn active" data-auth-tab="login">Sign in with email</button><button class="auth-tab-btn" data-auth-tab="register">Create Account</button></div><div id="loginFormContainer" class="auth-form-container active-auth-form"><div class="auth-title">Sign in with email</div><div class="auth-subtitle">Make a new doc to bring your words, data, and teams together. For free</div><div class="auth-form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div><div class="auth-form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:25px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="rememberMe"><span>Remember me</span></label><button class="forgot-link" id="openForgotModalBtn">Forgot password?</button></div><button class="auth-submit-btn" id="loginSubmitBtn">Get Started</button><div style="text-align:center;margin:25px 0;color:#555;font-size:12px;position:relative"><span style="background:rgba(25,25,35,0.75);padding:0 15px;position:relative;z-index:2">Or continue with</span><hr style="position:absolute;top:50%;width:100%;border:.5px solid rgba(255,255,255,0.1);z-index:1"></div><div class="auth-social"><button class="auth-social-btn" id="googleLoginBtn"><img src="https://cdn3d.iconscout.com/3d/premium/thumb/google-3d-icon-png-download-10163457.png" alt="Google"> Google</button><button class="auth-social-btn" id="discordLoginBtn"><img src="https://preview.redd.it/macos-tahoe-discord-icon-v0-emfw652vbpsf1.png?width=640&crop=smart&auto=webp&s=ee5deb00de2567ca11fe2c1baa9c419e2b3e2416" alt="Discord"> Discord</button></div></div><div id="registerFormContainer" class="auth-form-container"><div class="auth-title">Create account</div><div class="auth-subtitle">Sign up to start using Fanthom Launcher</div><div class="auth-form-group"><label>Full name</label><input type="text" id="registerName" placeholder="John Doe"></div><div class="auth-form-group"><label>Email</label><input type="email" id="registerEmail" placeholder="your@email.com"></div><div class="auth-form-group"><label>Password</label><input type="password" id="registerPassword" placeholder="Create password"></div><div class="auth-form-group"><label>Confirm password</label><input type="password" id="registerConfirmPassword" placeholder="Confirm password"></div><div style="margin-bottom:20px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="termsCheck"><span>I agree to the Terms</span></label></div><button class="auth-submit-btn" id="registerSubmitBtn">Create Account</button></div></div></div>
 
+    <!-- ===== Mobile Bottom Navigation Bar ===== -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <button class="mobile-nav-btn" data-page="about">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>About</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="store">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Store</span>
+        </button>
+        <button class="mobile-nav-btn active" data-page="home">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-5v-8H9v8H5a2 2 0 0 1-2-2z"/></svg>
+            <span>Home</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="status">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <span>Status</span>
+        </button>
+        <button class="mobile-nav-btn" data-page="help">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>Help</span>
+        </button>
+    </nav>
+
     <div id="forgotModal" class="forgot-modal-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);backdrop-filter:blur(2px);z-index:1100;display:none;align-items:center;justify-content:center"><div style="background:rgba(25,25,35,0.95);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);border-radius:24px;width:100%;max-width:400px;padding:32px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h3 style="color:#fff;font-size:20px">Reset password</h3><button id="closeForgotModalBtn" style="background:rgba(255,255,255,0.08);border:none;width:32px;height:32px;border-radius:10px;cursor:pointer;color:#fff">✕</button></div><p style="color:#999;margin-bottom:24px">Enter your email to receive a password reset link.</p><div class="auth-form-group"><label>Email</label><input type="email" id="resetEmail" placeholder="your@email.com" style="width:100%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;color:#fff"></div><button id="sendResetBtn" class="auth-submit-btn" style="margin-bottom:0">Send reset link →</button></div></div>
 </main>
 
-<div class="footer-wrapper"><footer class="footer-glass"><div class="footer-grid"><div class="footer-col"><h4>Documentation</h4><ul><li><a href="#">Getting Started</a></li><li><a href="#">API Reference</a></li><li><a href="#">Integrations</a></li><li><a href="#">SDKs</a></li></ul></div><div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Changelog</a></li><li><a href="#">Pricing</a></li><li><a href="#">Blog</a></li><li><a href="#">Examples</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Customers</a></li><li><a href="#">Brand</a></li><li><a href="#">Status</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Report Bug</a></li><li><a href="#">Request Game</a></li></ul></div></div><div class="footer-info-row"><div class="footer-address">Global Gaming Hub · Fanthom HQ</div><div class="status-badge-footer"><div class="online-dot"></div><span>All systems normal · 2,847 online</span></div></div><div class="footer-bottom"><div class="footer-brand-compact"><div class="logo-icon-small"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2v4M12 22v-4M4 12h4M16 12h4M7.05 7.05l2.83 2.83M14.12 14.12l2.83 2.83M7.05 16.95l2.83-2.83M14.12 9.88l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div><span class="brand-text">FANTHOM LAUNCHER</span><span class="footer-version-small">v2.1.0</span></div><div class="footer-credit">© 2026 — All rights reserved · Developed by <span class="dev-name-glow">AriyanXrg</span></div><div class="social-links-compact"><a href="https://instagram.com/ariyanxrg" target="_blank">Instagram</a><a href="https://t.me/ariyov" target="_blank">Telegram</a><a href="https://github.com/ariyanxrg" target="_blank">GitHub</a><a href="#" id="discordLinkFooter">Discord</a></div></div></footer></div>
+<div class="footer-wrapper"><footer class="footer-glass"><div class="footer-grid"><div class="footer-col"><h4>Documentation</h4><ul><li><a href="#">Getting Started</a></li><li><a href="#">API Reference</a></li><li><a href="#">Integrations</a></li><li><a href="#">SDKs</a></li></ul></div><div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Changelog</a></li><li><a href="#">Pricing</a></li><li><a href="#">Blog</a></li><li><a href="#">Examples</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Customers</a></li><li><a href="#">Brand</a></li><li><a href="#">Status</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Report Bug</a></li><li><a href="#">Request Game</a></li></ul></div></div><div class="footer-info-row"><div class="footer-address">Global Gaming Hub · Fanthom HQ</div><div class="status-badge-footer"><div class="online-dot"></div><span style="color: whitesmoke;">All systems normal · 2,847 online</span></div></div><div class="footer-bottom"><div class="footer-brand-compact"><div class="logo-icon-small"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2v4M12 22v-4M4 12h4M16 12h4M7.05 7.05l2.83 2.83M14.12 14.12l2.83 2.83M7.05 16.95l2.83-2.83M14.12 9.88l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div><span class="brand-text">FANTHOM LAUNCHER</span><span class="footer-version-small">v2.1.0</span></div><div class="footer-credit">© 2026 — All rights reserved · Developed by <span class="dev-name-glow">AriyanXrg</span></div><div class="social-links-compact"><a href="https://instagram.com/ariyanxrg" target="_blank">Instagram</a><a href="https://t.me/ariyov" target="_blank">Telegram</a><a href="https://github.com/ariyanxrg" target="_blank">GitHub</a><a href="#" id="discordLinkFooter">Discord</a></div></div></footer></div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
@@ -580,45 +702,19 @@
         requestAnimationFrame(raf);
         
         const homePage=document.getElementById('homePage'),storePage=document.getElementById('storePage'),aboutPage=document.getElementById('aboutPage'),statusPage=document.getElementById('statusPage'),helpPage=document.getElementById('helpPage'),navItems=document.querySelectorAll('.nav-item'),homeStoreBtn=document.getElementById('homeStoreBtn');
-        
-        const hamburgerBtn=document.getElementById('hamburgerBtn');
-        const mobileMenuOverlay=document.getElementById('mobileMenuOverlay');
-        const closeMobileMenuBtn=document.getElementById('closeMobileMenuBtn');
-        const mobileMenuItems=document.querySelectorAll('.mobile-menu-item');
-        
         function showPage(p){
             homePage.classList.remove('active-page');storePage.classList.remove('active-page');aboutPage.classList.remove('active-page');statusPage.classList.remove('active-page');helpPage.classList.remove('active-page');
-            if(p==='home')homePage.classList.add('active-page');else if(p==='store')storePage.classList.add('active-page');else if(p==='about')aboutPage.classList.add('active-page');else if(p==='status')statusPage.classList.add('active-page');else if(p==='help')helpPage.classList.add('active-page');
+            if(p==='home')homePage.classList.add('active-page');else if(p==='store')storePage.classList.add('active-page');else if(p==='about')aboutPage.classList.add('active-page');else if(p==='status')statusPage.classList.add('active-page');else if(p==='help')helpPage.classList.add('active-page');else return;
             navItems.forEach(i=>{i.classList.remove('active');if(i.getAttribute('data-page')===p)i.classList.add('active')});
-            lenis.scrollTo(0,{immediate:true});
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+            // sync mobile bottom nav
+            document.querySelectorAll('.mobile-nav-btn').forEach(i=>{i.classList.remove('active');if(i.getAttribute('data-page')===p)i.classList.add('active')});
+            lenis.scrollTo(0,{immediate:true})
         }
-        
         navItems.forEach(i=>{i.addEventListener('click',()=>{let p=i.getAttribute('data-page');if(p)showPage(p)})});
+        document.querySelectorAll('.mobile-nav-btn').forEach(i=>{i.addEventListener('click',()=>{let p=i.getAttribute('data-page');if(p)showPage(p)})});
         homeStoreBtn?.addEventListener('click',()=>showPage('store'));
         
-        hamburgerBtn?.addEventListener('click',()=>{
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        closeMobileMenuBtn?.addEventListener('click',()=>{
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        mobileMenuItems.forEach(item=>{
-            item.addEventListener('click',()=>{
-                let p=item.getAttribute('data-page');
-                if(p)showPage(p);
-            });
-        });
-        mobileMenuOverlay?.addEventListener('click',(e)=>{
-            if(e.target===mobileMenuOverlay){
-                mobileMenuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
+        // ✅ FAQ آکاردئونی - فقط یکی باز بمونه (مثل قبل)
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const faqItem = question.closest('.faq-item');
@@ -633,7 +729,9 @@
         
         document.getElementById('submitBugBtn')?.addEventListener('click',()=>{
             let t=document.getElementById('bugTitle').value,c=document.getElementById('bugCategory').value,p=document.getElementById('bugPriority').value,d=document.getElementById('bugDescription').value;
-            if(!t||!d)return;
+            if(!t||!d)return alert('Please fill in the issue title and description.');
+            alert(`✅ Bug report submitted!\n\nTitle: ${t}\nCategory: ${c}\nPriority: ${p}\n\nThank you for helping us improve Fanthom Launcher!`);
+            document.getElementById('bugTitle').value='';document.getElementById('bugDescription').value='';document.getElementById('bugEmail').checked=false
         });
         
         let isDark=true;const themeToggle=document.getElementById('themeToggle');
@@ -654,11 +752,11 @@
         const forgotModal=document.getElementById('forgotModal'),openForgotBtn=document.getElementById('openForgotModalBtn'),closeForgotBtn=document.getElementById('closeForgotModalBtn');
         openForgotBtn?.addEventListener('click',()=>forgotModal.style.display='flex');closeForgotBtn?.addEventListener('click',()=>forgotModal.style.display='none');forgotModal?.addEventListener('click',(e)=>{if(e.target===forgotModal)forgotModal.style.display='none'});
         
-        document.getElementById('loginSubmitBtn')?.addEventListener('click',()=>{let e=document.getElementById('loginEmail').value,p=document.getElementById('loginPassword').value;if(!e||!p)return;signinPanel.classList.remove('active');document.body.style.overflow=''});
-        document.getElementById('registerSubmitBtn')?.addEventListener('click',()=>{let n=document.getElementById('registerName').value,e=document.getElementById('registerEmail').value,p=document.getElementById('registerPassword').value,c=document.getElementById('registerConfirmPassword').value,t=document.getElementById('termsCheck').checked;if(!n||!e||!p||!c)return;if(p!==c)return;if(!t)return;signinPanel.classList.remove('active');document.body.style.overflow=''});
-        document.getElementById('sendResetBtn')?.addEventListener('click',()=>{let e=document.getElementById('resetEmail').value;if(!e)return;forgotModal.style.display='none';document.getElementById('resetEmail').value=''});
-        document.querySelectorAll('#googleLoginBtn,#googleRegisterBtn').forEach(btn=>{btn?.addEventListener('click',()=>{})});
-        document.querySelectorAll('#discordLoginBtn,#discordRegisterBtn').forEach(btn=>{btn?.addEventListener('click',()=>{})});
+        document.getElementById('loginSubmitBtn')?.addEventListener('click',()=>{let e=document.getElementById('loginEmail').value,p=document.getElementById('loginPassword').value;if(!e||!p)return alert('Please fill in both email and password.');alert(`Welcome back!\n\nSigned in as: ${e}`);signinPanel.classList.remove('active');document.body.style.overflow=''});
+        document.getElementById('registerSubmitBtn')?.addEventListener('click',()=>{let n=document.getElementById('registerName').value,e=document.getElementById('registerEmail').value,p=document.getElementById('registerPassword').value,c=document.getElementById('registerConfirmPassword').value,t=document.getElementById('termsCheck').checked;if(!n||!e||!p||!c)return alert('Please fill in all fields.');if(p!==c)return alert('Passwords do not match.');if(!t)return alert('Please agree to the Terms of Service.');alert(`Account created successfully!\n\nWelcome, ${n}!`);signinPanel.classList.remove('active');document.body.style.overflow=''});
+        document.getElementById('sendResetBtn')?.addEventListener('click',()=>{let e=document.getElementById('resetEmail').value;if(!e)return alert('Please enter your email address.');alert(`Password reset link sent to ${e}`);forgotModal.style.display='none';document.getElementById('resetEmail').value=''});
+        document.querySelectorAll('#googleLoginBtn,#googleRegisterBtn').forEach(btn=>{btn?.addEventListener('click',()=>alert('Google Sign-In (Demo)'))});
+        document.querySelectorAll('#discordLoginBtn,#discordRegisterBtn').forEach(btn=>{btn?.addEventListener('click',()=>alert('Discord Sign-In (Demo)'))});
         
         document.addEventListener('contextmenu',function(e){e.preventDefault();return false});
         document.addEventListener('keydown',function(e){
@@ -670,7 +768,7 @@
         document.addEventListener('cut',function(e){e.preventDefault();return false});
         document.addEventListener('paste',function(e){e.preventDefault();return false});
         let devtools=function(){};
-        devtools.toString=function(){if(!window._devtoolsFlag){window._devtoolsFlag=true;document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0a0f;color:#ff4444;font-family:monospace;text-align:center;padding:20px"><div><h1>🚫 ACCESS DENIED</h1><p>Developer tools detected. Please close them to continue.</p></div></div>';}};
+        devtools.toString=function(){if(!window._devtoolsFlag){window._devtoolsFlag=true;document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0a0f;color:#ff4444;font-family:monospace;text-align:center;padding:20px"><div><h1>🚫 ACCESS DENIED</h1><p>Developer tools detected. Please close them to continue.</p></div></div>';alert('Developer tools detected!')}};
         setInterval(()=>{console.clear();console.log('%c🔒 Protected by Fanthom Security','color:#2ecc2e;font-size:16px');console.log('%cCopying or inspecting this site is prohibited','color:#ff4444;font-size:12px')},500);
         setInterval(()=>{if(window.console&&console.clear){console.clear()}},100);
         document.addEventListener('dragstart',function(e){e.preventDefault();return false});
