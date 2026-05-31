@@ -222,15 +222,11 @@
         .faq-header{text-align:center;margin-bottom:50px}
         .faq-header h2{font-size:32px;font-weight:700;margin-bottom:12px}
         .faq-header p{color:var(--text-secondary);font-size:14px;max-width:600px;margin:0 auto}
-        
-        
         .faq-grid{display:flex;flex-direction:column;gap:24px;max-width:800px;margin:0 auto}
-
         .faq-item{background:rgba(20,20,30,0.5);backdrop-filter:blur(12px);border-radius:24px;border:1px solid rgba(255,255,255,0.08);overflow:hidden;transition:border-color 0.3s ease, transform 0.2s ease;cursor:pointer}
         .faq-item:hover{border-color:rgba(46,204,46,0.12);transform:translateY(-1px)}
         .faq-item.open{border-color:rgba(46,204,46,0.3);transform:translateY(0)}
         .faq-item.open:hover{transform:translateY(0)}
-
         .faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;background:rgba(255,255,255,0.03);font-weight:600;font-size:16px}
         .faq-left{display:flex;align-items:center;gap:14px}
         .faq-icon{width:32px;height:32px;background:rgba(46,204,46,0.12);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px}
@@ -238,7 +234,6 @@
         .faq-item.open .faq-arrow{transform:rotate(180deg)}
         .faq-answer{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease;color:var(--text-secondary);font-size:14px;line-height:1.6;border-top:1px solid rgba(255,255,255,0.05)}
         .faq-item.open .faq-answer{padding:20px 24px 24px 24px;max-height:300px}
-
         .bug-report-section{background:rgba(20,20,30,0.4);backdrop-filter:blur(8px);border-radius:28px;border:1px solid rgba(255,255,255,0.08);padding:40px;margin-top:60px}
         .bug-header{text-align:center;margin-bottom:40px}
         .bug-header h2{font-size:28px;font-weight:700;margin-bottom:12px}
@@ -283,10 +278,17 @@
         .social-links-compact a:hover{color:var(--primary)}
         .page{display:none}
         .page.active-page{display:block}
+        .mobile-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(8,8,14,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid rgba(46,204,46,0.15);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));justify-content:space-around;align-items:center;gap:4px}
+        .mobile-nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 10px;border-radius:14px;cursor:pointer;border:none;background:transparent;color:#555;font-family:inherit;transition:all .2s;min-width:52px;flex:1}
+        .mobile-nav-btn.active{color:var(--primary);background:rgba(46,204,46,0.1)}
+        .mobile-nav-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}
+        .mobile-nav-btn span{font-size:10px;font-weight:600;letter-spacing:.2px}
+        body.light-mode .mobile-bottom-nav{background:rgba(190,190,195,0.97)!important;border-top:1px solid rgba(0,0,0,0.1)!important}
+        body.light-mode .mobile-nav-btn{color:#888!important}
+        body.light-mode .mobile-nav-btn.active{color:#035e03!important;background:rgba(3,94,3,0.1)!important}
         @media (max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.plans-grid{grid-template-columns:repeat(2,1fr)}.team-grid-modern{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.region-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{max-width:100%}.footer-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
-        @media (max-width:768px){.nav-menu{display:none}.hero-title{font-size:44px}.features-grid{grid-template-columns:1fr}.plans-grid{grid-template-columns:1fr}.team-grid-modern{grid-template-columns:1fr}.region-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.bug-report-section{padding:24px}.footer-grid{grid-template-columns:1fr;gap:20px}.footer-info-row{flex-direction:column;gap:12px;align-items:flex-start}.footer-bottom{flex-direction:column;text-align:center;justify-content:center}.footer-brand-compact{justify-content:center}.glass-card-auth{margin:20px;padding:30px 24px}}
-        
-        
+        @media (max-width:768px){.mobile-bottom-nav{display:flex}body{padding-bottom:80px}.header-wrapper{padding:10px 10px 0 10px}.glass-navbar{border-radius:14px}.navbar{height:58px;padding:0 12px}.logo-icon{width:30px;height:30px;border-radius:8px}.logo-icon svg{width:17px;height:17px}.logo-text{font-size:14px}.online-badge{display:none}.icon-btn{width:36px;height:36px;border-radius:8px}.icon-btn svg{width:18px;height:18px}.signin-btn{padding:0 12px;height:36px;font-size:12px;border-radius:10px;gap:5px}.signin-btn svg{width:16px;height:16px}.container{padding:0 12px}.hero{padding:28px 0 20px}.hero-title{font-size:clamp(30px,8.5vw,42px);line-height:1.1}.hero-sub{font-size:13px;margin-bottom:14px}.badge-list{gap:7px;margin:14px 0}.badge{font-size:11px;padding:5px 11px;gap:5px}.badge svg{width:13px;height:13px}.online-large{font-size:12px;padding:6px 16px;margin-bottom:14px}.btn-group{gap:10px;flex-direction:column;align-items:stretch}.btn{min-width:0;width:100%;padding:13px 20px;font-size:14px;border-radius:12px}.features-section{padding:36px 0}.section-title{font-size:22px;margin-bottom:24px}.store-section{padding:36px 0}.store-header h2{font-size:20px}.status-section{padding:36px 0}.status-hero h1{font-size:22px!important;line-height:1.3}.help-section{padding:36px 0}.feature-header{padding:16px 16px 10px}.feature-content{padding:0 16px 16px}.plans-grid{gap:16px}.plan-card{padding:22px 18px}.plan-name{font-size:20px}.plan-price{font-size:30px}.team-section-header{margin-top:40px;margin-bottom:32px}.team-section-header h2{font-size:24px}.team-grid-modern{gap:16px;margin-bottom:40px}.team-card-modern{padding:24px 20px}.services-grid{gap:14px}.service-card{padding:16px;flex-direction:column;align-items:flex-start;gap:12px}.service-status{align-self:flex-end}.region-grid{gap:12px}.region-card{padding:14px}.incident-list{padding:20px}.faq-header h2{font-size:22px}.faq-question{font-size:13px;padding:14px 16px}.faq-left{gap:10px}.faq-icon{width:28px;height:28px;font-size:15px}.faq-answer{font-size:13px;padding:0 16px}.faq-item.open .faq-answer{padding:14px 16px 18px}.bug-report-section{padding:20px;margin-top:36px}.bug-header h2{font-size:20px}.form-row{grid-template-columns:1fr}.glass-card-auth{margin:16px;padding:28px 20px;border-radius:24px}.auth-title{font-size:22px}.footer-wrapper{padding:0 10px;margin-bottom:12px}.footer-glass{padding:22px 18px 20px;border-radius:18px}.footer-bottom{gap:12px}.tech-grid-modern{gap:12px}.tech-item-modern{padding:10px 18px}.why-choose-section{padding:30px 0 40px}.why-choose-section h2{font-size:22px}.glass-navbar,.feature-card,.plan-card,.team-card-modern,.service-card,.faq-item,.region-card,.incident-list,.bug-report-section,.tech-item-modern,.footer-glass,.mobile-bottom-nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.glass-card-auth{backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important}.bg-grid{animation:none!important}.feature-card,.plan-card,.team-card-modern,.service-card,.faq-item,.region-card,.mobile-nav-btn,.btn,.buy-btn,.signin-btn{transition:background .15s ease,border-color .15s ease,color .15s ease!important}.feature-card:hover,.plan-card:hover,.team-card-modern:hover,.service-card:hover,.region-card:hover,.faq-item:hover,.tech-item-modern:hover,.btn:hover,.buy-btn:hover,.submit-btn:hover,.store-btn:hover,.badge:hover{transform:none!important}.mobile-bottom-nav{transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform}.plan-card,.team-card-modern,.service-card{box-shadow:none!important}.bg-glow{filter:blur(30px)!important;opacity:.4!important}body{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}.plan-card::before{display:none!important}.mobile-nav-btn,.btn,.buy-btn,.faq-question,.feature-card,.plan-card,.signin-btn,.store-btn,.submit-btn{-webkit-tap-highlight-color:transparent}.mobile-nav-btn:active{background:rgba(46,204,46,0.15)!important;transform:scale(0.95)!important;transition:transform .08s ease!important}.btn:active{transform:scale(0.97)!important;transition:transform .08s ease!important}.buy-btn:active,.store-btn:active,.submit-btn:active{transform:scale(0.97)!important;opacity:.85!important;transition:all .08s ease!important}.faq-item:active{border-color:rgba(46,204,46,0.2)!important}}
+        @media (max-width:380px){.hero-title{font-size:clamp(26px,7.5vw,34px)}.navbar{padding:0 10px}.logo-text{font-size:13px}.mobile-nav-btn{min-width:44px;padding:6px 6px}.mobile-nav-btn span{font-size:9px}}
         body.light-mode{background:#cfcfcf!important}
         body.light-mode .bg-grid,body.light-mode .bg-vignette,body.light-mode .bg-glow{display:block!important;opacity:0.08}
         body.light-mode .glass-navbar{background:#c4c4c4!important;backdrop-filter:blur(20px)!important;border:1px solid rgba(0,0,0,0.1)!important;box-shadow:0 8px 20px rgba(0,0,0,0.05)!important}
@@ -307,13 +309,10 @@
         body.light-mode .status-hero h1{background:linear-gradient(135deg,#444,#777)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
         body.light-mode .feature-card, body.light-mode .service-card, body.light-mode .team-card-modern, body.light-mode .tech-item-modern, body.light-mode .region-card, body.light-mode .bug-report-section, body.light-mode .incident-list, body.light-mode .glass-card-auth{background:#c8c8c8!important;backdrop-filter:blur(12px)!important;border:1px solid rgba(0,0,0,0.08)!important;box-shadow:0 4px 12px rgba(0,0,0,0.05)!important}
         body.light-mode .feature-card:hover, body.light-mode .service-card:hover, body.light-mode .team-card-modern:hover, body.light-mode .region-card:hover{background:#d0d0d0!important;border-color:rgba(3,94,3,0.35)!important;transform:translateY(-3px)}
-
-        
         body.light-mode .faq-item{background:#c8c8c8!important;backdrop-filter:blur(12px)!important;border:1px solid rgba(0,0,0,0.08)!important;box-shadow:0 4px 12px rgba(0,0,0,0.05)!important}
         body.light-mode .faq-item:hover{background:#cdcdcd!important;border-color:rgba(3,94,3,0.12)!important;transform:translateY(-1px)!important}
         body.light-mode .faq-item.open{border-color:rgba(3,94,3,0.35)!important;transform:translateY(0)!important}
         body.light-mode .faq-item.open:hover{transform:translateY(0)!important}
-
         body.light-mode .plan-card{background:linear-gradient(180deg,#c4c4c4 0%,#bcbcbc 100%)!important;backdrop-filter:blur(8px)!important;border:1px solid rgba(0,0,0,0.1)!important;box-shadow:0 8px 25px rgba(0,0,0,0.06)!important}
         body.light-mode .plan-card:hover{background:#cecece!important;border-color:rgba(3,94,3,0.4)!important;transform:translateY(-6px);box-shadow:0 16px 35px rgba(0,0,0,0.1)!important}
         body.light-mode .plan-name{background:linear-gradient(135deg,#1e1e2a,#035e03)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
@@ -370,202 +369,6 @@
         body.light-mode .signin-panel-overlay .forgot-link{color:#777!important}
         body.light-mode .signin-panel-overlay .forgot-link:hover{color:#2ecc2e!important}
         body.light-mode .signin-panel-overlay .auth-form-group input:focus{border-color:rgba(46,204,46,0.5)!important}
-
-        
-
-        
-        .mobile-bottom-nav{
-            display:none;
-            position:fixed;
-            bottom:0;left:0;right:0;
-            z-index:300;
-            background:rgba(8,8,14,0.95);
-            backdrop-filter:blur(24px);
-            -webkit-backdrop-filter:blur(24px);
-            border-top:1px solid rgba(46,204,46,0.15);
-            padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));
-            justify-content:space-around;
-            align-items:center;
-            gap:4px;
-        }
-        .mobile-nav-btn{
-            display:flex;flex-direction:column;align-items:center;
-            gap:3px;padding:6px 10px;border-radius:14px;
-            cursor:pointer;border:none;background:transparent;
-            color:#555;font-family:inherit;transition:all .2s;
-            min-width:52px;flex:1;
-        }
-        .mobile-nav-btn.active{color:var(--primary);background:rgba(46,204,46,0.1);}
-        .mobile-nav-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;}
-        .mobile-nav-btn span{font-size:10px;font-weight:600;letter-spacing:.2px;}
-
-        
-        body.light-mode .mobile-bottom-nav{background:rgba(190,190,195,0.97)!important;border-top:1px solid rgba(0,0,0,0.1)!important;}
-        body.light-mode .mobile-nav-btn{color:#888!important;}
-        body.light-mode .mobile-nav-btn.active{color:#035e03!important;background:rgba(3,94,3,0.1)!important;}
-
-        @media (max-width:768px){
-            
-            .mobile-bottom-nav{display:flex;}
-
-            
-            body{padding-bottom:80px;}
-
-            
-            .header-wrapper{padding:10px 10px 0 10px;}
-            .glass-navbar{border-radius:14px;}
-            .navbar{height:58px;padding:0 12px;}
-            .logo-icon{width:30px;height:30px;border-radius:8px;}
-            .logo-icon svg{width:17px;height:17px;}
-            .logo-text{font-size:14px;}
-            .online-badge{display:none;}
-            .icon-btn{width:36px;height:36px;border-radius:8px;}
-            .icon-btn svg{width:18px;height:18px;}
-            .signin-btn{padding:0 12px;height:36px;font-size:12px;border-radius:10px;gap:5px;}
-            .signin-btn svg{width:16px;height:16px;}
-
-            
-            .container{padding:0 12px;}
-
-            
-            .hero{padding:28px 0 20px;}
-            .hero-title{font-size:clamp(30px,8.5vw,42px);line-height:1.1;}
-            .hero-sub{font-size:13px;margin-bottom:14px;}
-            .badge-list{gap:7px;margin:14px 0;}
-            .badge{font-size:11px;padding:5px 11px;gap:5px;}
-            .badge svg{width:13px;height:13px;}
-            .online-large{font-size:12px;padding:6px 16px;margin-bottom:14px;}
-            .btn-group{gap:10px;flex-direction:column;align-items:stretch;}
-            .btn{min-width:0;width:100%;padding:13px 20px;font-size:14px;border-radius:12px;}
-
-            
-            .features-section{padding:36px 0;}
-            .section-title{font-size:22px;margin-bottom:24px;}
-            .store-section{padding:36px 0;}
-            .store-header h2{font-size:20px;}
-            .status-section{padding:36px 0;}
-            .status-hero h1{font-size:22px!important;line-height:1.3;}
-            .help-section{padding:36px 0;}
-
-            
-            .feature-header{padding:16px 16px 10px;}
-            .feature-content{padding:0 16px 16px;}
-
-            
-            .plans-grid{gap:16px;}
-            .plan-card{padding:22px 18px;}
-            .plan-name{font-size:20px;}
-            .plan-price{font-size:30px;}
-
-            
-            .team-section-header{margin-top:40px;margin-bottom:32px;}
-            .team-section-header h2{font-size:24px;}
-            .team-grid-modern{gap:16px;margin-bottom:40px;}
-            .team-card-modern{padding:24px 20px;}
-
-            
-            .services-grid{gap:14px;}
-            .service-card{padding:16px;flex-direction:column;align-items:flex-start;gap:12px;}
-            .service-status{align-self:flex-end;}
-            .region-grid{gap:12px;}
-            .region-card{padding:14px;}
-            .incident-list{padding:20px;}
-
-            
-            .faq-header h2{font-size:22px;}
-            .faq-question{font-size:13px;padding:14px 16px;}
-            .faq-left{gap:10px;}
-            .faq-icon{width:28px;height:28px;font-size:15px;}
-            .faq-answer{font-size:13px;padding:0 16px;}
-            .faq-item.open .faq-answer{padding:14px 16px 18px;}
-
-            
-            .bug-report-section{padding:20px;margin-top:36px;}
-            .bug-header h2{font-size:20px;}
-            .form-row{grid-template-columns:1fr;}
-
-            
-            .glass-card-auth{margin:16px;padding:28px 20px;border-radius:24px;}
-            .auth-title{font-size:22px;}
-
-            
-            .footer-wrapper{padding:0 10px;margin-bottom:12px;}
-            .footer-glass{padding:22px 18px 20px;border-radius:18px;}
-            .footer-bottom{gap:12px;}
-
-            
-            .tech-grid-modern{gap:12px;}
-            .tech-item-modern{padding:10px 18px;}
-
-            
-            .store-btn{padding:10px 24px;font-size:13px;}
-
-            
-            .why-choose-section{padding:30px 0 40px;}
-            .why-choose-section h2{font-size:22px;}
-        }
-
-        
-        @media (max-width:380px){
-            .hero-title{font-size:clamp(26px,7.5vw,34px);}
-            .navbar{padding:0 10px;}
-            .logo-text{font-size:13px;}
-            .mobile-nav-btn{min-width:44px;padding:6px 6px;}
-            .mobile-nav-btn span{font-size:9px;}
-        }
-
-        
-        @media (max-width:768px){
-            
-            .glass-navbar,.feature-card,.plan-card,.team-card-modern,
-            .service-card,.faq-item,.region-card,.incident-list,
-            .bug-report-section,.tech-item-modern,.footer-glass,.mobile-bottom-nav{
-                backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
-            }
-            
-            .glass-card-auth{backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;}
-
-            
-            .bg-grid{animation:none!important;}
-
-            
-            .feature-card,.plan-card,.team-card-modern,.service-card,
-            .faq-item,.region-card,.mobile-nav-btn,.btn,.buy-btn,.signin-btn{
-                transition:background .15s ease,border-color .15s ease,color .15s ease!important;
-            }
-
-            
-            .feature-card:hover,.plan-card:hover,.team-card-modern:hover,
-            .service-card:hover,.region-card:hover,.faq-item:hover,
-            .tech-item-modern:hover,.btn:hover,.buy-btn:hover,
-            .submit-btn:hover,.store-btn:hover,.badge:hover{transform:none!important;}
-
-            
-            .mobile-bottom-nav{transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform;}
-
-            
-            .plan-card,.team-card-modern,.service-card{box-shadow:none!important;}
-
-            
-            .bg-glow{filter:blur(30px)!important;opacity:.4!important;}
-
-            
-            body{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;}
-
-            
-            .plan-card::before{display:none!important;}
-
-            
-            .mobile-nav-btn,.btn,.buy-btn,.faq-question,.feature-card,.plan-card,.signin-btn,.store-btn,.submit-btn{
-                -webkit-tap-highlight-color:transparent;
-            }
-
-            
-            .mobile-nav-btn:active{background:rgba(46,204,46,0.15)!important;transform:scale(0.95)!important;transition:transform .08s ease!important;}
-            .btn:active{transform:scale(0.97)!important;transition:transform .08s ease!important;}
-            .buy-btn:active,.store-btn:active,.submit-btn:active{transform:scale(0.97)!important;opacity:.85!important;transition:all .08s ease!important;}
-            .faq-item:active{border-color:rgba(46,204,46,0.2)!important;}
-        }
     </style>
 </head>
 <body>
@@ -673,7 +476,6 @@
         </div>
     </div></div>
 
-    
     <div id="helpPage" class="page"><div class="help-section">
         <div class="faq-section">
             <div class="faq-header">
@@ -681,7 +483,6 @@
                 <h2>Got questions? We've got answers.</h2>
                 <p>Everything you need to know about Fanthom Launcher.</p>
             </div>
-            
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question"><div class="faq-left"><div class="faq-icon">❓</div><span>What is Fanthom Launcher?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
@@ -716,7 +517,6 @@
 
     <div id="signinPanel" class="signin-panel-overlay"><div class="glass-card-auth"><button class="close-panel" id="closeSigninPanel">✕</button><div class="auth-tabs"><button class="auth-tab-btn active" data-auth-tab="login">Sign in with email</button><button class="auth-tab-btn" data-auth-tab="register">Create Account</button></div><div id="loginFormContainer" class="auth-form-container active-auth-form"><div class="auth-title">Sign in with email</div><div class="auth-subtitle">Make a new doc to bring your words, data, and teams together. For free</div><div class="auth-form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div><div class="auth-form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:25px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="rememberMe"><span>Remember me</span></label><button class="forgot-link" id="openForgotModalBtn">Forgot password?</button></div><button class="auth-submit-btn" id="loginSubmitBtn">Get Started</button><div style="text-align:center;margin:25px 0;color:#555;font-size:12px;position:relative"><span style="background:rgba(25,25,35,0.75);padding:0 15px;position:relative;z-index:2">Or continue with</span><hr style="position:absolute;top:50%;width:100%;border:.5px solid rgba(255,255,255,0.1);z-index:1"></div><div class="auth-social"><button class="auth-social-btn" id="googleLoginBtn"><img src="https://cdn3d.iconscout.com/3d/premium/thumb/google-3d-icon-png-download-10163457.png" alt="Google"> Google</button><button class="auth-social-btn" id="discordLoginBtn"><img src="https://preview.redd.it/macos-tahoe-discord-icon-v0-emfw652vbpsf1.png?width=640&crop=smart&auto=webp&s=ee5deb00de2567ca11fe2c1baa9c419e2b3e2416" alt="Discord"> Discord</button></div></div><div id="registerFormContainer" class="auth-form-container"><div class="auth-title">Create account</div><div class="auth-subtitle">Sign up to start using Fanthom Launcher</div><div class="auth-form-group"><label>Full name</label><input type="text" id="registerName" placeholder="John Doe"></div><div class="auth-form-group"><label>Email</label><input type="email" id="registerEmail" placeholder="your@email.com"></div><div class="auth-form-group"><label>Password</label><input type="password" id="registerPassword" placeholder="Create password"></div><div class="auth-form-group"><label>Confirm password</label><input type="password" id="registerConfirmPassword" placeholder="Confirm password"></div><div style="margin-bottom:20px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="termsCheck"><span>I agree to the Terms</span></label></div><button class="auth-submit-btn" id="registerSubmitBtn">Create Account</button></div></div></div>
 
-    
     <nav class="mobile-bottom-nav" id="mobileBottomNav">
         <button class="mobile-nav-btn" data-page="about">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
