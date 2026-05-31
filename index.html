@@ -15,7 +15,7 @@
         :root{--primary:#2ecc2e;--primary-dark:#1a8a1a;--primary-glow:rgba(46,204,46,0.3);--text-primary:#e0e0e0;--text-secondary:#888;--bg-dark:#0a0a0f;--glass-bg:rgba(10,10,18,0.7);--border-glass:rgba(255,255,255,0.08);--card-bg:rgba(20,20,30,0.5);--transition:all 0.3s cubic-bezier(0.2,0.9,0.4,1.1)}
         body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg-dark);color:var(--text-primary);min-height:100vh;transition:background .3s ease;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
         input,textarea,[contenteditable="true"]{user-select:text;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text}
-        .bg-grid{position:fixed;inset:0;z-index:-50;background-image:linear-gradient(to right,rgba(56,56,56,0.3) 1px,transparent 1px),linear-gradient(to bottom,rgba(56,56,56,0.3) 1px,transparent 1px);background-size:30px 30px;animation:gridMove 3s linear infinite}
+        .bg-grid{position:fixed;inset:0;z-index:-50;background-image:linear-gradient(to right,rgba(56,56,56,0.3) 1px,transparent 1px),linear-gradient(to bottom,rgba(56,56,56,0.3) 1px,transparent 1px);background-size:30px 30px;animation:gridMove 15s linear infinite}
         @keyframes gridMove{0%{background-position:0 0}100%{background-position:0 30px}}
         .bg-vignette{position:fixed;inset:0;z-index:-49;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 30%,rgba(0,0,0,0.3) 60%,black 90%);pointer-events:none}
         .bg-glow{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:60%;z-index:-48;background:radial-gradient(circle,rgba(46,204,46,0.06),transparent);filter:blur(60px);pointer-events:none}
@@ -223,7 +223,7 @@
         .faq-header h2{font-size:32px;font-weight:700;margin-bottom:12px}
         .faq-header p{color:var(--text-secondary);font-size:14px;max-width:600px;margin:0 auto}
         
-        /* ✅ استایل FAQ اصلاح شده - حالت عمودی (بلوک زیر هم) */
+        
         .faq-grid{display:flex;flex-direction:column;gap:24px;max-width:800px;margin:0 auto}
 
         .faq-item{background:rgba(20,20,30,0.5);backdrop-filter:blur(12px);border-radius:24px;border:1px solid rgba(255,255,255,0.08);overflow:hidden;transition:border-color 0.3s ease, transform 0.2s ease;cursor:pointer}
@@ -286,7 +286,7 @@
         @media (max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.plans-grid{grid-template-columns:repeat(2,1fr)}.team-grid-modern{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.region-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{max-width:100%}.footer-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
         @media (max-width:768px){.nav-menu{display:none}.hero-title{font-size:44px}.features-grid{grid-template-columns:1fr}.plans-grid{grid-template-columns:1fr}.team-grid-modern{grid-template-columns:1fr}.region-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.bug-report-section{padding:24px}.footer-grid{grid-template-columns:1fr;gap:20px}.footer-info-row{flex-direction:column;gap:12px;align-items:flex-start}.footer-bottom{flex-direction:column;text-align:center;justify-content:center}.footer-brand-compact{justify-content:center}.glass-card-auth{margin:20px;padding:30px 24px}}
         
-        /* لایت مود */
+        
         body.light-mode{background:#cfcfcf!important}
         body.light-mode .bg-grid,body.light-mode .bg-vignette,body.light-mode .bg-glow{display:block!important;opacity:0.08}
         body.light-mode .glass-navbar{background:#c4c4c4!important;backdrop-filter:blur(20px)!important;border:1px solid rgba(0,0,0,0.1)!important;box-shadow:0 8px 20px rgba(0,0,0,0.05)!important}
@@ -308,7 +308,7 @@
         body.light-mode .feature-card, body.light-mode .service-card, body.light-mode .team-card-modern, body.light-mode .tech-item-modern, body.light-mode .region-card, body.light-mode .bug-report-section, body.light-mode .incident-list, body.light-mode .glass-card-auth{background:#c8c8c8!important;backdrop-filter:blur(12px)!important;border:1px solid rgba(0,0,0,0.08)!important;box-shadow:0 4px 12px rgba(0,0,0,0.05)!important}
         body.light-mode .feature-card:hover, body.light-mode .service-card:hover, body.light-mode .team-card-modern:hover, body.light-mode .region-card:hover{background:#d0d0d0!important;border-color:rgba(3,94,3,0.35)!important;transform:translateY(-3px)}
 
-        /* ✅ FAQ لایت مود اصلاح شده */
+        
         body.light-mode .faq-item{background:#c8c8c8!important;backdrop-filter:blur(12px)!important;border:1px solid rgba(0,0,0,0.08)!important;box-shadow:0 4px 12px rgba(0,0,0,0.05)!important}
         body.light-mode .faq-item:hover{background:#cdcdcd!important;border-color:rgba(3,94,3,0.12)!important;transform:translateY(-1px)!important}
         body.light-mode .faq-item.open{border-color:rgba(3,94,3,0.35)!important;transform:translateY(0)!important}
@@ -371,11 +371,9 @@
         body.light-mode .signin-panel-overlay .forgot-link:hover{color:#2ecc2e!important}
         body.light-mode .signin-panel-overlay .auth-form-group input:focus{border-color:rgba(46,204,46,0.5)!important}
 
-        /* ============================================================
-           MOBILE RESPONSIVE — فقط موبایل، PC دست نخورده
-        ============================================================ */
+        
 
-        /* Bottom Nav Bar — فقط موبایل نشون داده میشه */
+        
         .mobile-bottom-nav{
             display:none;
             position:fixed;
@@ -401,19 +399,19 @@
         .mobile-nav-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;}
         .mobile-nav-btn span{font-size:10px;font-weight:600;letter-spacing:.2px;}
 
-        /* Light mode bottom nav */
+        
         body.light-mode .mobile-bottom-nav{background:rgba(190,190,195,0.97)!important;border-top:1px solid rgba(0,0,0,0.1)!important;}
         body.light-mode .mobile-nav-btn{color:#888!important;}
         body.light-mode .mobile-nav-btn.active{color:#035e03!important;background:rgba(3,94,3,0.1)!important;}
 
         @media (max-width:768px){
-            /* نشون دادن bottom nav */
+            
             .mobile-bottom-nav{display:flex;}
 
-            /* فاصله پایین برای bottom nav */
+            
             body{padding-bottom:80px;}
 
-            /* Navbar کوچکتر */
+            
             .header-wrapper{padding:10px 10px 0 10px;}
             .glass-navbar{border-radius:14px;}
             .navbar{height:58px;padding:0 12px;}
@@ -426,10 +424,10 @@
             .signin-btn{padding:0 12px;height:36px;font-size:12px;border-radius:10px;gap:5px;}
             .signin-btn svg{width:16px;height:16px;}
 
-            /* Container */
+            
             .container{padding:0 12px;}
 
-            /* Hero */
+            
             .hero{padding:28px 0 20px;}
             .hero-title{font-size:clamp(30px,8.5vw,42px);line-height:1.1;}
             .hero-sub{font-size:13px;margin-bottom:14px;}
@@ -440,7 +438,7 @@
             .btn-group{gap:10px;flex-direction:column;align-items:stretch;}
             .btn{min-width:0;width:100%;padding:13px 20px;font-size:14px;border-radius:12px;}
 
-            /* Sections */
+            
             .features-section{padding:36px 0;}
             .section-title{font-size:22px;margin-bottom:24px;}
             .store-section{padding:36px 0;}
@@ -449,23 +447,23 @@
             .status-hero h1{font-size:22px!important;line-height:1.3;}
             .help-section{padding:36px 0;}
 
-            /* Feature cards */
+            
             .feature-header{padding:16px 16px 10px;}
             .feature-content{padding:0 16px 16px;}
 
-            /* Plan cards */
+            
             .plans-grid{gap:16px;}
             .plan-card{padding:22px 18px;}
             .plan-name{font-size:20px;}
             .plan-price{font-size:30px;}
 
-            /* Team */
+            
             .team-section-header{margin-top:40px;margin-bottom:32px;}
             .team-section-header h2{font-size:24px;}
             .team-grid-modern{gap:16px;margin-bottom:40px;}
             .team-card-modern{padding:24px 20px;}
 
-            /* Status page */
+            
             .services-grid{gap:14px;}
             .service-card{padding:16px;flex-direction:column;align-items:flex-start;gap:12px;}
             .service-status{align-self:flex-end;}
@@ -473,7 +471,7 @@
             .region-card{padding:14px;}
             .incident-list{padding:20px;}
 
-            /* FAQ */
+            
             .faq-header h2{font-size:22px;}
             .faq-question{font-size:13px;padding:14px 16px;}
             .faq-left{gap:10px;}
@@ -481,33 +479,33 @@
             .faq-answer{font-size:13px;padding:0 16px;}
             .faq-item.open .faq-answer{padding:14px 16px 18px;}
 
-            /* Bug report */
+            
             .bug-report-section{padding:20px;margin-top:36px;}
             .bug-header h2{font-size:20px;}
             .form-row{grid-template-columns:1fr;}
 
-            /* Auth panel */
+            
             .glass-card-auth{margin:16px;padding:28px 20px;border-radius:24px;}
             .auth-title{font-size:22px;}
 
-            /* Footer */
+            
             .footer-wrapper{padding:0 10px;margin-bottom:12px;}
             .footer-glass{padding:22px 18px 20px;border-radius:18px;}
             .footer-bottom{gap:12px;}
 
-            /* Tech grid */
+            
             .tech-grid-modern{gap:12px;}
             .tech-item-modern{padding:10px 18px;}
 
-            /* Store btn */
+            
             .store-btn{padding:10px 24px;font-size:13px;}
 
-            /* Why choose */
+            
             .why-choose-section{padding:30px 0 40px;}
             .why-choose-section h2{font-size:22px;}
         }
 
-        /* خیلی کوچیک (iPhone SE و مشابه) */
+        
         @media (max-width:380px){
             .hero-title{font-size:clamp(26px,7.5vw,34px);}
             .navbar{padding:0 10px;}
@@ -516,55 +514,53 @@
             .mobile-nav-btn span{font-size:9px;}
         }
 
-        /* ============================================================
-           MOBILE PERFORMANCE — روونی و سرعت
-        ============================================================ */
+        
         @media (max-width:768px){
-            /* حذف backdrop-filter سنگین — GPU موبایل نجات پیدا میکنه */
+            
             .glass-navbar,.feature-card,.plan-card,.team-card-modern,
             .service-card,.faq-item,.region-card,.incident-list,
             .bug-report-section,.tech-item-modern,.footer-glass,.mobile-bottom-nav{
                 backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
             }
-            /* blur فقط روی auth panel بمونه */
+            
             .glass-card-auth{backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;}
 
-            /* انیمیشن grid پس‌زمینه خاموش */
+            
             .bg-grid{animation:none!important;}
 
-            /* transition ها سریع‌تر */
+            
             .feature-card,.plan-card,.team-card-modern,.service-card,
             .faq-item,.region-card,.mobile-nav-btn,.btn,.buy-btn,.signin-btn{
                 transition:background .15s ease,border-color .15s ease,color .15s ease!important;
             }
 
-            /* حذف hover transform روی touch */
+            
             .feature-card:hover,.plan-card:hover,.team-card-modern:hover,
             .service-card:hover,.region-card:hover,.faq-item:hover,
             .tech-item-modern:hover,.btn:hover,.buy-btn:hover,
             .submit-btn:hover,.store-btn:hover,.badge:hover{transform:none!important;}
 
-            /* GPU layer برای bottom nav */
+            
             .mobile-bottom-nav{transform:translateZ(0);-webkit-transform:translateZ(0);will-change:transform;}
 
-            /* حذف box-shadow سنگین */
+            
             .plan-card,.team-card-modern,.service-card{box-shadow:none!important;}
 
-            /* bg-glow سبک‌تر */
+            
             .bg-glow{filter:blur(30px)!important;opacity:.4!important;}
 
-            /* overscroll بهتر */
+            
             body{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;}
 
-            /* حذف shimmer animation کارت‌ها */
+            
             .plan-card::before{display:none!important;}
 
-            /* tap highlight پاک */
+            
             .mobile-nav-btn,.btn,.buy-btn,.faq-question,.feature-card,.plan-card,.signin-btn,.store-btn,.submit-btn{
                 -webkit-tap-highlight-color:transparent;
             }
 
-            /* active state برای touch — جای hover */
+            
             .mobile-nav-btn:active{background:rgba(46,204,46,0.15)!important;transform:scale(0.95)!important;transition:transform .08s ease!important;}
             .btn:active{transform:scale(0.97)!important;transition:transform .08s ease!important;}
             .buy-btn:active,.store-btn:active,.submit-btn:active{transform:scale(0.97)!important;opacity:.85!important;transition:all .08s ease!important;}
@@ -677,7 +673,7 @@
         </div>
     </div></div>
 
-    <!-- ==================== صفحه Help با تغییرات درخواستی ==================== -->
+    
     <div id="helpPage" class="page"><div class="help-section">
         <div class="faq-section">
             <div class="faq-header">
@@ -685,7 +681,7 @@
                 <h2>Got questions? We've got answers.</h2>
                 <p>Everything you need to know about Fanthom Launcher.</p>
             </div>
-            <!-- ✅ چیدمان عمودی - 4 سوال به صورت بلاک زیر هم -->
+            
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question"><div class="faq-left"><div class="faq-icon">❓</div><span>What is Fanthom Launcher?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
@@ -720,7 +716,7 @@
 
     <div id="signinPanel" class="signin-panel-overlay"><div class="glass-card-auth"><button class="close-panel" id="closeSigninPanel">✕</button><div class="auth-tabs"><button class="auth-tab-btn active" data-auth-tab="login">Sign in with email</button><button class="auth-tab-btn" data-auth-tab="register">Create Account</button></div><div id="loginFormContainer" class="auth-form-container active-auth-form"><div class="auth-title">Sign in with email</div><div class="auth-subtitle">Make a new doc to bring your words, data, and teams together. For free</div><div class="auth-form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div><div class="auth-form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••"></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:25px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="rememberMe"><span>Remember me</span></label><button class="forgot-link" id="openForgotModalBtn">Forgot password?</button></div><button class="auth-submit-btn" id="loginSubmitBtn">Get Started</button><div style="text-align:center;margin:25px 0;color:#555;font-size:12px;position:relative"><span style="background:rgba(25,25,35,0.75);padding:0 15px;position:relative;z-index:2">Or continue with</span><hr style="position:absolute;top:50%;width:100%;border:.5px solid rgba(255,255,255,0.1);z-index:1"></div><div class="auth-social"><button class="auth-social-btn" id="googleLoginBtn"><img src="https://cdn3d.iconscout.com/3d/premium/thumb/google-3d-icon-png-download-10163457.png" alt="Google"> Google</button><button class="auth-social-btn" id="discordLoginBtn"><img src="https://preview.redd.it/macos-tahoe-discord-icon-v0-emfw652vbpsf1.png?width=640&crop=smart&auto=webp&s=ee5deb00de2567ca11fe2c1baa9c419e2b3e2416" alt="Discord"> Discord</button></div></div><div id="registerFormContainer" class="auth-form-container"><div class="auth-title">Create account</div><div class="auth-subtitle">Sign up to start using Fanthom Launcher</div><div class="auth-form-group"><label>Full name</label><input type="text" id="registerName" placeholder="John Doe"></div><div class="auth-form-group"><label>Email</label><input type="email" id="registerEmail" placeholder="your@email.com"></div><div class="auth-form-group"><label>Password</label><input type="password" id="registerPassword" placeholder="Create password"></div><div class="auth-form-group"><label>Confirm password</label><input type="password" id="registerConfirmPassword" placeholder="Confirm password"></div><div style="margin-bottom:20px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="termsCheck"><span>I agree to the Terms</span></label></div><button class="auth-submit-btn" id="registerSubmitBtn">Create Account</button></div></div></div>
 
-    <!-- ===== Mobile Bottom Navigation Bar ===== -->
+    
     <nav class="mobile-bottom-nav" id="mobileBottomNav">
         <button class="mobile-nav-btn" data-page="about">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -752,7 +748,6 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
 <script>
     (function(){
-        // Lenis فقط دسکتاپ — موبایل native scroll روون‌تره
         const isMobile=window.innerWidth<=768||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
         const lenis=new Lenis({duration:1.2,easing:(t)=>Math.min(1,1.001-Math.pow(2,-10*t)),direction:'vertical',gestureDirection:'vertical',smooth:!isMobile,smoothTouch:false,touchMultiplier:2});
         function raf(t){lenis.raf(t);requestAnimationFrame(raf)}
@@ -763,7 +758,6 @@
             homePage.classList.remove('active-page');storePage.classList.remove('active-page');aboutPage.classList.remove('active-page');statusPage.classList.remove('active-page');helpPage.classList.remove('active-page');
             if(p==='home')homePage.classList.add('active-page');else if(p==='store')storePage.classList.add('active-page');else if(p==='about')aboutPage.classList.add('active-page');else if(p==='status')statusPage.classList.add('active-page');else if(p==='help')helpPage.classList.add('active-page');else return;
             navItems.forEach(i=>{i.classList.remove('active');if(i.getAttribute('data-page')===p)i.classList.add('active')});
-            // sync mobile bottom nav
             document.querySelectorAll('.mobile-nav-btn').forEach(i=>{i.classList.remove('active');if(i.getAttribute('data-page')===p)i.classList.add('active')});
             if(isMobile){window.scrollTo({top:0,behavior:'auto'})}else{lenis.scrollTo(0,{immediate:true})}
         }
@@ -771,7 +765,6 @@
         document.querySelectorAll('.mobile-nav-btn').forEach(i=>{i.addEventListener('click',()=>{let p=i.getAttribute('data-page');if(p)showPage(p)})});
         homeStoreBtn?.addEventListener('click',()=>showPage('store'));
         
-        // ✅ FAQ آکاردئونی - فقط یکی باز بمونه (مثل قبل)
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const faqItem = question.closest('.faq-item');
