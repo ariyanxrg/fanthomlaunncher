@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Fanthom Launcher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-vignette"></div>
+<div class="bg-glow"></div>
+
+<div class="header-wrapper">
+    <div class="glass-navbar">
+        <div class="navbar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8">
+                        <path d="M12 2v4M12 22v-4M4 12h4M16 12h4M7.05 7.05l2.83 2.83M14.12 14.12l2.83 2.83M7.05 16.95l2.83-2.83M14.12 9.88l2.83-2.83"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span>Fanthom</span>
+                    <span>Launcher</span>
+                </div>
+                <div class="online-badge">
+                    <div class="online-dot"></div>
+                    <span>2,847</span>
+                </div>
+            </div>
+
+            <div class="nav-menu">
+                <button class="nav-item" data-page="about">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>About</span>
+                </button>
+                <button class="nav-item" data-page="store">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span>Store</span>
+                </button>
+                <button class="nav-item active" data-page="home">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-5v-8H9v8H5a2 2 0 0 1-2-2z"/></svg>
+                    <span>Home</span>
+                </button>
+                <button class="nav-item" data-page="status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><line x1="8" y1="9" x2="16" y2="9"/></svg>
+                    <span>Status</span>
+                </button>
+                <button class="nav-item" data-page="help">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4" stroke="currentColor" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+                    <span>Help</span>
+                </button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="themeToggle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <a href="#" class="signin-btn" id="signinBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="20" height="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page active-page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="fanthom-highlight">Fanthom</span><span>Launcher</span></h1>
+                <p class="hero-sub">The First Official Launcher In Gaming World</p>
+                <div class="badge-list">
+                    <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>24/7 Support</div>
+                    <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)"><path d="M12 2v4M12 22v-4M4 12h16M8 2l-2 6M16 2l2 6"/><path d="M3 12h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Anti-Cheat Protected</div>
+                    <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/></svg>Cloud Saves</div>
+                    <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82l.03.03A10 10 0 0 0 12 17.66a10 10 0 0 0 6.37-2.63z"/><path d="M12 2v4M4 2l2 6M20 2l-2 6"/></svg>Free to use</div>
+                </div>
+                <div class="online-large"><div class="online-dot"></div><span>2,847 Online Players</span></div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" id="downloadBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v12m0 0-3-3m3 3 3-3M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Download</button>
+                    <button class="btn btn-secondary" id="homeStoreBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Explore the Store</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2 class="section-title">What Makes Us Different</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                        <h3 class="feature-title">Speed</h3>
+                    </div>
+                    <div class="feature-content"><p>Fanthom Launcher is designed for smoothness. With optimized code and efficient algorithms, it offers an ultra-fast and smooth performance. Say goodbye to lag and hello to a seamless user experience!</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+                        <h3 class="feature-title">Flexibility</h3>
+                    </div>
+                    <div class="feature-content"><p>Fanthom Launcher is highly customizable, including themes, mods, mod settings, and more, allowing users to enjoy their game. Get ready to personalize!</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <h3 class="feature-title">Community</h3>
+                    </div>
+                    <div class="feature-content"><p>Fanthom Launcher is a gaming community with thousands of passionate players who love gaming. It helps you connect with others and enjoy a high-quality gaming experience!</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="12" y2="10"/></svg></div>
+                        <h3 class="feature-title">Multi-Platform</h3>
+                    </div>
+                    <div class="feature-content"><p>The Fanthom Launcher supports Windows and Linux operating systems so that players can enjoy playing with the best quality on different platforms.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="store-section">
+            <div class="store-header"><h2>Choose Your Plan</h2><p>Get the best gaming experience with our flexible plans. Start for free and upgrade anytime.</p></div>
+            <div class="plans-grid">
+                <!-- Starter Plan -->
+                <div class="plan-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">$4.99 <span>/month</span></div>
+                    <div class="plan-desc">Perfect for casual gamers who want basic features and smooth performance.</div>
+                    <div class="plan-tags">
+                        <span class="plan-tag tag-speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>SPEED</span>
+                        <span class="plan-tag tag-basic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>BASIC</span>
+                        <span class="plan-tag tag-storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>50GB</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Basic Launcher Access</li>
+                        <li>Standard Support</li>
+                        <li>50GB Cloud Saves</li>
+                        <li>Basic Customization</li>
+                        <li>Community Access</li>
+                    </ul>
+                    <button class="buy-btn">Get Started →</button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="plan-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">$12.99 <span>/month</span></div>
+                    <div class="plan-desc">The sweet spot for serious gamers. Advanced features and priority support.</div>
+                    <div class="plan-tags">
+                        <span class="plan-tag tag-speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>SPEED+</span>
+                        <span class="plan-tag tag-intelligence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 9-10 9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 22v-4"/></svg>INTELLIGENCE</span>
+                        <span class="plan-tag tag-storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>200GB</span>
+                        <span class="plan-tag tag-custom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82"/></svg>CUSTOM</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Advanced Launcher Access</li>
+                        <li>Priority Support 24/7</li>
+                        <li>200GB Cloud Saves</li>
+                        <li>Full Customization + Themes</li>
+                        <li>Exclusive Capes & Pets</li>
+                        <li>Early Access to New Games</li>
+                    </ul>
+                    <button class="buy-btn">Get Pro →</button>
+                </div>
+
+                <!-- Ultimate Plan -->
+                <div class="plan-card">
+                    <div class="plan-name">Ultimate</div>
+                    <div class="plan-price">$24.99 <span>/month</span></div>
+                    <div class="plan-desc">The ultimate experience for pro gamers and content creators.</div>
+                    <div class="plan-tags">
+                        <span class="plan-tag tag-speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>MAX SPEED</span>
+                        <span class="plan-tag tag-intelligence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 9-10 9"/><circle cx="12" cy="12" r="4"/></svg>ULTRA AI</span>
+                        <span class="plan-tag tag-storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>1TB</span>
+                        <span class="plan-tag tag-vip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v4M12 22v-4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="3"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg>VIP</span>
+                        <span class="plan-tag tag-context"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><circle cx="12" cy="8" r="0.5" fill="currentColor"/></svg>200k CTX</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Ultimate Launcher Access</li>
+                        <li>Dedicated 1-on-1 Support</li>
+                        <li>1TB Cloud Saves</li>
+                        <li>Unlimited Customization</li>
+                        <li>All Exclusive Items + DLCs</li>
+                        <li>Private Discord Channel</li>
+                        <li>Beta Tester Program</li>
+                    </ul>
+                    <button class="buy-btn">Go Ultimate →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STORE PAGE -->
+    <div id="storePage" class="page">
+        <div class="store-section" style="border-top:none;padding-top:40px">
+            <div class="store-header"><h2>Fanthom Launcher Store</h2><p>Discover exclusive capes, pets, hats, collectible items and premium plans.</p></div>
+            <div class="plans-grid">
+                <!-- همان پلن‌ها -->
+                <div class="plan-card">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">$4.99 <span>/month</span></div>
+                    <div class="plan-desc">Perfect for casual gamers who want basic features and smooth performance.</div>
+                    <div class="plan-tags">
+                        <span class="plan-tag tag-speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>SPEED</span>
+                        <span class="plan-tag tag-basic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>BASIC</span>
+                        <span class="plan-tag tag-storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>50GB</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Basic Launcher Access</li>
+                        <li>Standard Support</li>
+                        <li>50GB Cloud Saves</li>
+                        <li>Basic Customization</li>
+                        <li>Community Access</li>
+                    </ul>
+                    <button class="buy-btn">Get Started →</button>
+                </div>
+                <div class="plan-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">$12.99 <span>/month</span></div>
+                    <div class="plan-desc">The sweet spot for serious gamers. Advanced features and priority support.</div>
+                    <div class="plan-tags">
+                        <span class="plan-tag tag-speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>SPEED+</span>
+                        <span class="plan-tag tag-intelligence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 9-10 9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 22v-4"/></svg>INTELLIGENCE</span>
+                        <span class="plan-tag tag-storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>200GB</span>
+                        <span class="plan-tag tag-custom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H5.78a1.65 1.65 0 0 0-1.51 1 1.65 1.65 0 0 0 .33 1.82"/></svg>CUSTOM</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Advanced Launcher Access</li>
+                        <li>Priority Support 24/7</li>
+                        <li>200GB Cloud Saves</li>
+                        <li>Full Customization + Themes</li>
+                        <li>Exclusive Capes & Pets</li>
+                        <li>Early Access to New Games</li>
+                    </ul>
+                    <button class="buy-btn">Get Pro →</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-name">Ultimate</div>
+                    <div class="plan-price">$24.99 <span>/month</span></div>
+                    <div class="plan-desc">The ultimate experience for pro gamers and content creators.</div>
+                    <div class="plan-tags">
+                        <span class="plan-tag tag-speed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>MAX SPEED</span>
+                        <span class="plan-tag tag-intelligence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 9-10 9"/><circle cx="12" cy="12" r="4"/></svg>ULTRA AI</span>
+                        <span class="plan-tag tag-storage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>1TB</span>
+                        <span class="plan-tag tag-vip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v4M12 22v-4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="3"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/></svg>VIP</span>
+                        <span class="plan-tag tag-context"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><circle cx="12" cy="8" r="0.5" fill="currentColor"/></svg>200k CTX</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>Ultimate Launcher Access</li>
+                        <li>Dedicated 1-on-1 Support</li>
+                        <li>1TB Cloud Saves</li>
+                        <li>Unlimited Customization</li>
+                        <li>All Exclusive Items + DLCs</li>
+                        <li>Private Discord Channel</li>
+                        <li>Beta Tester Program</li>
+                    </ul>
+                    <button class="buy-btn">Go Ultimate →</button>
+                </div>
+            </div>
+
+            <div class="why-choose-section">
+                <h2>Why Choose Fanthom Launcher?</h2>
+                <p>Join thousands of satisfied gamers who trust Fanthom for the best gaming experience.</p>
+                <div class="reasons-list">
+                    <div class="reason-item"><span class="reason-check">✓</span><div class="reason-content"><strong>Security First</strong> — Bank-level encryption and advanced anti-cheat protection keep your account and data safe.</div></div>
+                    <div class="reason-item"><span class="reason-check">✓</span><div class="reason-content"><strong>24/7 Expert Support</strong> — Our dedicated support team is available around the clock to help you with any issues.</div></div>
+                    <div class="reason-item"><span class="reason-check">✓</span><div class="reason-content"><strong>Weekly Updates</strong> — New features, optimizations, and exclusive content drops every week.</div></div>
+                    <div class="reason-item"><span class="reason-check">✓</span><div class="reason-content"><strong>Blazing Fast Performance</strong> — Ultra-low latency, instant game launching, and optimized resource usage.</div></div>
+                    <div class="reason-item"><span class="reason-check">✓</span><div class="reason-content"><strong>Vibrant Community</strong> — Join 50,000+ active members on Discord for events, tournaments, and giveaways.</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="aboutPage" class="page">
+        <div class="about-section">
+            <div class="team-section-header">
+                <span class="section-badge">✦ The Minds Behind It</span>
+                <h2>Meet the <span class="gradient-text">Team</span></h2>
+                <p>Passionate creators dedicated to revolutionizing your gaming experience.</p>
+            </div>
+            <div class="team-grid-modern">
+                <div class="team-card-modern">
+                    <div class="team-image">
+                        <div class="team-avatar-modern"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="50" height="50" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 7l2 2-2 2M17 7l-2 2 2 2"/></svg></div>
+                        <div class="team-social">
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="17" y1="7" x2="17.01" y2="7"/></svg></a>
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2.5"/><path d="M22 8.5V15c0 2-1.5 3.5-3.5 3.5h-13C3.5 18.5 2 17 2 15V8.5"/><path d="M22 7.5L12 14 2 7.5"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>SepantaJS</h4>
+                        <span class="team-role-modern">Security Architect</span>
+                        <p>Cybersecurity expert with a mission to keep your data safe while you enjoy your games without worries.</p>
+                    </div>
+                </div>
+                <div class="team-card-modern">
+                    <div class="team-image">
+                        <div class="team-avatar-modern"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="50" height="50" stroke-width="1.5"><path d="M12 2a10 10 0 0 1 10 10c0 5-4 9-10 9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 22v-4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/><path d="M2 12h4M18 12h4"/></svg></div>
+                        <div class="team-social">
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="17" y1="7" x2="17.01" y2="7"/></svg></a>
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2.5"/><path d="M22 8.5V15c0 2-1.5 3.5-3.5 3.5h-13C3.5 18.5 2 17 2 15V8.5"/><path d="M22 7.5L12 14 2 7.5"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>AriyanXrg</h4>
+                        <span class="team-role-modern">Founder & Lead Developer</span>
+                        <p>Visionary behind Fanthom Launcher with 8+ years of experience in game development and a passion for innovation.</p>
+                    </div>
+                </div>
+                <div class="team-card-modern">
+                    <div class="team-image">
+                        <div class="team-avatar-modern"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="50" height="50" stroke-width="1.5"><path d="M12 2L3 7l1 8 8 5 8-5 1-8-9-5z"/><circle cx="12" cy="12" r="2"/><path d="M12 8v2m0 4v2"/></svg></div>
+                        <div class="team-social">
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><circle cx="12" cy="12" r="3"/><line x1="17" y1="7" x2="17.01" y2="7"/></svg></a>
+                            <a href="#"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2.5"/><path d="M22 8.5V15c0 2-1.5 3.5-3.5 3.5h-13C3.5 18.5 2 17 2 15V8.5"/><path d="M22 7.5L12 14 2 7.5"/></svg></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Amirxr</h4>
+                        <span class="team-role-modern">Head of Product</span>
+                        <p>Former product lead at major gaming platforms, passionate about creating intuitive user experiences that gamers love.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-section-modern">
+                <div class="tech-header">
+                    <span class="section-badge">✦ Powered By</span>
+                    <h2>Built with <span class="gradient-text">Modern</span> Technology</h2>
+                    <p>We use the latest and greatest tools to deliver the best experience.</p>
+                </div>
+                <div class="tech-grid-modern">
+                    <div class="tech-item-modern">
+                        <div class="tech-icon-3d"><img src="https://cdn3d.iconscout.com/3d/free/thumb/free-html-3d-icon-png-download-7578018.png" alt="HTML5"></div>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item-modern">
+                        <div class="tech-icon-3d"><img src="https://cdn3d.iconscout.com/3d/free/thumb/free-css-3d-icon-png-download-7578024.png" alt="CSS3"></div>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item-modern">
+                        <div class="tech-icon-3d"><img src="https://cdn3d.iconscout.com/3d/free/thumb/free-tailwind-3d-icon-png-download-7577995.png" alt="Tailwind CSS"></div>
+                        <span>Tailwind</span>
+                    </div>
+                    <div class="tech-item-modern">
+                        <div class="tech-icon-3d js-icon">JS</div>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATUS PAGE -->
+    <div id="statusPage" class="page">
+        <div class="status-section">
+            <div class="status-hero">
+                <h1 style="font-size: 48px; margin-bottom: 16px;">Live status dashboard — 100% operational</h1>
+                <div class="overall-status-glass">
+                    <div class="status-indicator-glass"></div>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/></svg></div>
+                        <div><div class="service-name">Launcher API</div><div class="service-uptime">99.99% uptime</div></div>
+                    </div>
+                    <div class="service-status"><div class="status-badge success">Operational</div></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+                        <div><div class="service-name">Game Servers</div><div class="service-uptime">99.95% uptime</div></div>
+                    </div>
+                    <div class="service-status"><div class="status-badge success">Operational</div></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                        <div><div class="service-name">Store & Payments</div><div class="service-uptime">99.98% uptime</div></div>
+                    </div>
+                    <div class="service-status"><div class="status-badge success">Operational</div></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                        <div><div class="service-name">Authentication</div><div class="service-uptime">99.99% uptime</div></div>
+                    </div>
+                    <div class="service-status"><div class="status-badge success">Operational</div></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2.5"/><path d="M21 12c0-4.97-4.03-9-9-9s-9 4.03-9 9"/></svg></div>
+                        <div><div class="service-name">CDN</div><div class="service-uptime">99.99% uptime</div></div>
+                    </div>
+                    <div class="service-status"><div class="status-badge success">Operational</div></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-info">
+                        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h4"/></svg></div>
+                        <div><div class="service-name">Database</div><div class="service-uptime">99.99% uptime</div></div>
+                    </div>
+                    <div class="service-status"><div class="status-badge success">Operational</div></div>
+                </div>
+            </div>
+
+            <div class="region-status">
+                <h2>Server Regions</h2>
+                <div class="region-grid">
+                    <div class="region-card"><div class="region-name">North America</div><div class="status-badge success" style="display:inline-block">Online</div><div class="region-ping">25ms avg ping</div></div>
+                    <div class="region-card"><div class="region-name">Europe</div><div class="status-badge success" style="display:inline-block">Online</div><div class="region-ping">40ms avg ping</div></div>
+                    <div class="region-card"><div class="region-name">Asia-Pacific</div><div class="status-badge success" style="display:inline-block">Online</div><div class="region-ping">120ms avg ping</div></div>
+                    <div class="region-card"><div class="region-name">Middle East</div><div class="status-badge success" style="display:inline-block">Online</div><div class="region-ping">80ms avg ping</div></div>
+                </div>
+            </div>
+
+            <div class="incident-list">
+                <h2>Recent Incidents</h2>
+                <div class="incident-item"><div class="incident-status resolved"></div><div class="incident-content"><div class="incident-title">CDN routing optimization completed</div><div class="incident-date">April 15, 2026 - Resolved</div></div></div>
+                <div class="incident-item"><div class="incident-status resolved"></div><div class="incident-content"><div class="incident-title">Scheduled maintenance on European servers</div><div class="incident-date">April 8, 2026 - Completed</div></div></div>
+                <div class="incident-item"><div class="incident-status resolved"></div><div class="incident-content"><div class="incident-title">Increased API latency - Fixed</div><div class="incident-date">April 1, 2026 - Resolved</div></div></div>
+                <div class="incident-item"><div class="incident-status"></div><div class="incident-content"><div class="incident-title">Investigating intermittent packet loss in Asia region</div><div class="incident-date">March 25, 2026 - Monitoring</div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HELP PAGE -->
+    <div id="helpPage" class="page">
+        <div class="help-section">
+            <div class="faq-section">
+                <div class="faq-header">
+                    <span class="section-badge">✦ Frequently Asked Questions</span>
+                    <h2>Got questions? We've got answers.</h2>
+                    <p>Everything you need to know about Fanthom Launcher.</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question"><div class="faq-left"><div class="faq-icon">❓</div><span>What is Fanthom Launcher?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                        <div class="faq-answer">Fanthom Launcher is a next-generation gaming platform that allows you to launch, manage, and play your favorite games all in one place. It offers fast performance, customization options, and a vibrant community.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><div class="faq-left"><div class="faq-icon">💻</div><span>Is Fanthom Launcher free?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                        <div class="faq-answer">Yes! The basic version of Fanthom Launcher is completely free to use. We offer premium plans (Starter, Pro, Ultimate) with additional features like cloud saves, exclusive items, and priority support.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><div class="faq-left"><div class="faq-icon">🖥️</div><span>Which platforms are supported?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                        <div class="faq-answer">Fanthom Launcher currently supports Windows and Linux operating systems. MacOS support is coming soon!</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question"><div class="faq-left"><div class="faq-icon">🎮</div><span>How do I install games?</span></div><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                        <div class="faq-answer">Simply go to the Store section, browse our collection of games, and click "Install" on any game you want. The launcher will handle the download and installation automatically.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bug-report-section">
+                <div class="bug-header">
+                    <span class="section-badge">✦ Report an Issue</span>
+                    <h2>Found a bug? Let us know.</h2>
+                    <p>Help us improve Fanthom Launcher by reporting any issues you encounter.</p>
+                </div>
+                <div class="bug-form">
+                    <div class="form-group"><label for="bugTitle">Issue Title</label><input type="text" id="bugTitle" placeholder="e.g., Launcher crashes when opening settings"></div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="bugCategory">Category</label><select id="bugCategory"><option value="launcher">Launcher</option><option value="game">Game Launch</option><option value="store">Store</option><option value="login">Login/Account</option><option value="performance">Performance</option><option value="other">Other</option></select></div>
+                        <div class="form-group"><label for="bugPriority">Priority</label><select id="bugPriority"><option value="low">Low - Minor inconvenience</option><option value="medium">Medium - Annoying but workable</option><option value="high">High - Major feature broken</option><option value="critical">Critical - Cannot use launcher</option></select></div>
+                    </div>
+                    <div class="form-group"><label for="bugDescription">Description</label><textarea id="bugDescription" rows="5" placeholder="Please describe the issue in detail. Include steps to reproduce if possible..."></textarea></div>
+                    <div class="form-group"><label>Attachments (Optional)</label><div class="file-upload"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg><span>Click or drag files here</span></div></div>
+                    <div class="form-group"><label class="checkbox-label"><input type="checkbox" id="bugEmail"><span>Send me updates about this issue via email</span></label></div>
+                    <button class="submit-btn" id="submitBugBtn">Submit Report →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGN IN PANEL -->
+    <div id="signinPanel" class="signin-panel-overlay">
+        <div class="glass-card-auth">
+            <button class="close-panel" id="closeSigninPanel">✕</button>
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" data-auth-tab="login">Sign in with email</button>
+                <button class="auth-tab-btn" data-auth-tab="register">Create Account</button>
+            </div>
+            <div id="loginFormContainer" class="auth-form-container active-auth-form">
+                <div class="auth-title">Sign in with email</div>
+                <div class="auth-subtitle">Make a new doc to bring your words, data, and teams together. For free</div>
+                <div class="auth-form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
+                <div class="auth-form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••"></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:25px">
+                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="rememberMe"><span>Remember me</span></label>
+                    <button class="forgot-link" id="openForgotModalBtn">Forgot password?</button>
+                </div>
+                <button class="auth-submit-btn" id="loginSubmitBtn">Get Started</button>
+                <div style="text-align:center;margin:25px 0;color:#555;font-size:12px;position:relative">
+                    <span style="background:rgba(25,25,35,0.75);padding:0 15px;position:relative;z-index:2">Or continue with</span>
+                    <hr style="position:absolute;top:50%;width:100%;border:.5px solid rgba(255,255,255,0.1);z-index:1">
+                </div>
+                <div class="auth-social">
+                    <button class="auth-social-btn" id="googleLoginBtn"><img src="https://cdn3d.iconscout.com/3d/premium/thumb/google-3d-icon-png-download-10163457.png" alt="Google"> Google</button>
+                    <button class="auth-social-btn" id="discordLoginBtn"><img src="https://preview.redd.it/macos-tahoe-discord-icon-v0-emfw652vbpsf1.png?width=640&crop=smart&auto=webp&s=ee5deb00de2567ca11fe2c1baa9c419e2b3e2416" alt="Discord"> Discord</button>
+                </div>
+            </div>
+            <div id="registerFormContainer" class="auth-form-container">
+                <div class="auth-title">Create account</div>
+                <div class="auth-subtitle">Sign up to start using Fanthom Launcher</div>
+                <div class="auth-form-group"><label>Full name</label><input type="text" id="registerName" placeholder="John Doe"></div>
+                <div class="auth-form-group"><label>Email</label><input type="email" id="registerEmail" placeholder="your@email.com"></div>
+                <div class="auth-form-group"><label>Password</label><input type="password" id="registerPassword" placeholder="Create password"></div>
+                <div class="auth-form-group"><label>Confirm password</label><input type="password" id="registerConfirmPassword" placeholder="Confirm password"></div>
+                <div style="margin-bottom:20px"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#888"><input type="checkbox" id="termsCheck"><span>I agree to the Terms</span></label></div>
+                <button class="auth-submit-btn" id="registerSubmitBtn">Create Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORGOT PASSWORD MODAL -->
+    <div id="forgotModal" class="forgot-modal-overlay">
+        <div style="background:rgba(25,25,35,0.95);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.15);border-radius:24px;width:100%;max-width:400px;padding:32px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <h3 style="color:#fff;font-size:20px">Reset password</h3>
+                <button id="closeForgotModalBtn" style="background:rgba(255,255,255,0.08);border:none;width:32px;height:32px;border-radius:10px;cursor:pointer;color:#fff">✕</button>
+            </div>
+            <p style="color:#999;margin-bottom:24px">Enter your email to receive a password reset link.</p>
+            <div class="auth-form-group"><label>Email</label><input type="email" id="resetEmail" placeholder="your@email.com" style="width:100%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px;color:#fff"></div>
+            <button id="sendResetBtn" class="auth-submit-btn" style="margin-bottom:0">Send reset link →</button>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<div class="footer-wrapper">
+    <footer class="footer-glass">
+        <div class="footer-grid">
+            <div class="footer-col"><h4>Documentation</h4><ul><li><a href="#">Getting Started</a></li><li><a href="#">API Reference</a></li><li><a href="#">Integrations</a></li><li><a href="#">SDKs</a></li></ul></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Changelog</a></li><li><a href="#">Pricing</a></li><li><a href="#">Blog</a></li><li><a href="#">Examples</a></li></ul></div>
+            <div class="footer-col"><h4>Company</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Customers</a></li><li><a href="#">Brand</a></li><li><a href="#">Status</a></li></ul></div>
+            <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Report Bug</a></li><li><a href="#">Request Game</a></li></ul></div>
+        </div>
+        <div class="footer-info-row">
+            <div class="footer-address">Global Gaming Hub · Fanthom HQ</div>
+            <div class="status-badge-footer"><div class="online-dot"></div><span style="color: whitesmoke;">All systems normal · 2,847 online</span></div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-brand-compact">
+                <div class="logo-icon-small"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 2v4M12 22v-4M4 12h4M16 12h4M7.05 7.05l2.83 2.83M14.12 14.12l2.83 2.83M7.05 16.95l2.83-2.83M14.12 9.88l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <span class="brand-text">FANTHOM LAUNCHER</span>
+                <span class="footer-version-small">v2.1.0</span>
+            </div>
+            <div class="footer-credit">© 2026 — All rights reserved · Developed by <span class="dev-name-glow">AriyanXrg</span></div>
+            <div class="social-links-compact">
+                <a href="https://instagram.com/ariyanxrg" target="_blank">Instagram</a>
+                <a href="https://t.me/ariyov" target="_blank">Telegram</a>
+                <a href="https://github.com/ariyanxrg" target="_blank">GitHub</a>
+                <a href="#" id="discordLinkFooter">Discord</a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <button class="mobile-nav-btn" data-page="about">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>About</span>
+    </button>
+    <button class="mobile-nav-btn" data-page="store">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span>Store</span>
+    </button>
+    <button class="mobile-nav-btn active" data-page="home">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-5v-8H9v8H5a2 2 0 0 1-2-2z"/></svg>
+        <span>Home</span>
+    </button>
+    <button class="mobile-nav-btn" data-page="status">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        <span>Status</span>
+    </button>
+    <button class="mobile-nav-btn" data-page="help">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+        <span>Help</span>
+    </button>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/faq.js"></script>
+<script src="js/bug-report.js"></script>
+<script src="js/security.js"></script>
+</body>
+</html>
