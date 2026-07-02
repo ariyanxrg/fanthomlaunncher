@@ -52,5 +52,3 @@
 - **Netlify** - Hosting & deployment
 
 ---
-
-## 📂 Project Structure
