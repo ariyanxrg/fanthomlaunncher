@@ -2,7 +2,6 @@
 
 ### The First Official Launcher In Gaming World
 
-![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge&logo=netlify)
 ![Version](https://img.shields.io/badge/version-2.1.0-blue)
 ![Status](https://img.shields.io/badge/status-stable-success)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
